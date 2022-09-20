@@ -6,15 +6,29 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <link rel="stylesheet" href="./assets/CSS/reset.css" />
+    <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="./assets/CSS/style.css" />
     <title>Movie and Music Database</title>
 </head>
 
 <body>
     <!--Page header-->
-    <header>
-        <h1 class="">Movie and Music Database</h1>
-    </header>
+    <header class="bg-red-400 p-4 flex items-center">
+        <div class="flex items-center">
+          <img class="mr-2" src="./assets/images/index-images/logo.png" width="50" alt="logo">
+          <a href="#" class="inline-block p-2 text-red-200 hover:text-red-100 mr-2">Home</a>
+          <a href="#" class="inline-block p-2 text-red-200 hover:text-red-100">About</a>
+          <!--   future development
+      <a href="#" class="inline-block p-2 text-indigo-200 hover:text-indigo-100">Forum</a> 
+      <a href="#" class="inline-block p-2 text-indigo-200 hover:text-indigo-100">Social</a> -->
+        </div>
+    
+        <!-- future development
+    <div class="hidden md:block">
+      <a href="#" class="inline-block p-2 text-indigo-200 hover:text-indigo-100 mr-2">Login</a>
+      <a href="#" class="inline-block py-2 px-4 text-yellow-700 bg-yellow-400 hover:bg-yellow-300 hover:text-yellow-800 rounded transition ease-in duration-150">Sign Up</a>
+    </div> -->
+      </header>
 
     <!--Search Bar-->
     <div class="">
@@ -39,10 +53,7 @@
     </div>
 
     <!--User search history-->
-    <div class="">
-        <h2 class="">Movie Search History</h2>
-        <ul id="previous-selected-search-history"></ul>
-    </div>
+    
 
     <script src="./assets/JS/script.js"></script>
 </body>
