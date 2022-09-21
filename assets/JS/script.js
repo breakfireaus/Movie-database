@@ -19,6 +19,16 @@ function init() {
 
 };
 
+
+document.getElementById("search-button").addEventListener("click", saveData);
+function saveData(){
+    var movie= new Date();
+    window.localStorage.setItem("Movie")
+    
+}
+
+
+
 init
 
 
