@@ -23,6 +23,9 @@
 
 - Ask BCS team @ Monash university Bootcamp
 - Tutor for getting me on track
+- Traversy Media
+- W3schools
+- Tailwind
 
 ## License
 
