@@ -6,37 +6,78 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta http-equiv="X-UA-Compatible" content="ie=edge" />
   <link rel="stylesheet" href="./assets/CSS/reset.css" />
+  <script src="https://cdn.tailwindcss.com"></script>
   <link rel="stylesheet" href="./assets/CSS/style.css" />
-  <title>Movie and Music Database</title>
+  <title>Movie Makers Soundtrack Database</title>
+  <link rel="icon" type="image/x-icon" href="./assets/images/favicon/logofavicon.png">
 </head>
 
 <body>
-  <!--Page header-->
-  <header>
-    <h1 class="">Movie and Music Database</h1>
-  </header>
-
   <main>
+    <!--Page header-->
+    <header class="bg-red-400 p-4 flex items-center">
+      <div class="flex items-center">
+        <img class="mr-2" src="./assets/images/index-images/logo.png" width="50" alt="logo">
+        <a href="#" class="inline-block p-2 text-red-200 hover:text-red-100 mr-2">Home</a>
+        <a href="About.html" class="inline-block p-2 text-red-200 hover:text-red-100">About</a>
+
+        <!-- future development
+            <a href="#" class="inline-block p-2 text-red-200 hover:text-red-100">News</a>
+            <a href="#" class="inline-block p-2 text-red-200 hover:text-red-100">Awards</a> -->
+          
+      </div>
+
+          
+        <!-- future development
+          
+          <div class="hidden md:block">
+            <a href="#" class="inline-block p-2 text-red-200 hover:text-red-100">Social</a>
+            <a href="#" class="inline-block p-2 text-red-200 hover:text-red-100">forum</a>
+            <a href="#" class="inline-block p-2 text-indigo-200 hover:text-indigo-100 mr-2">Login</a>
+            <a href="#" class="inline-block py-2 px-4 text-yellow-700 bg-yellow-400 hover:bg-yellow-300 hover:text-yellow-800 rounded transition ease-in duration-150">Sign Up</a>
+          </div> -->
+    </header>
+
+
+
     <!--Hero image-->
-    <div class=""></div>
+    <section class="md:flex justify-between py-20 px-10 bg-indigo-600 text-indigo-100">
 
-    <!--Search bar-->
-    <div class="">
-      <h2 class="">Search By Movie Title</h2>
-      <form id="" class="">
-        <input id="" class="" type="text" placeholder="Search for a movie title!" />
-        <button class="">Search!</button>
-      </form>
-    </div>
+      <!--   left -->
+      <div class="md:w-1/2 mb-10 md:mb-0">
+        <h2 class="text-2xl md:text-4xl lg:text-6xl text-white mb-6">Welcome to the Movie Makers Soundtrack Database
+        </h2>
+        <p class="mb-6 animate-bounce">Search for your favourite soundtracks for all you movie enthusiasts!!!</p>
 
-    <!--User search history-->
-    <div class="">
-      <h2 class="">Movie Search History</h2>
-      <ul id=""></ul>
-    </div>
+        <!--Search bar-->
+        <form class="flex mr-5">
+          <input type="text" class="w-full rounded-l py-3 px-4 outline-none focus:bg-indigo-200">
+          <button class="bg-red-300 hover:bg-red-400 text-red-800 rounded-r p-4">Search</button>
+        </form>
+        <!--User search history-->
+        <div class="">
+          <h2 class="py-3">Movie Search History</h2>
+          <ul id=""></ul>
+          <button class="bg-red-300 hover:bg-red-400 text-red-800 rounded p-4">Clear</button>
+        </div>
+      </div>
+
+      <!--   right -->
+      <div class="md:w-1/2">
+        <img src="./assets/images/index-images/hollywood Images.jpg" alt="Hero Image" class="w-full rounded shadow-2xl">
+      </div>
+
+
+    </section>
+
+
+
+
+
   </main>
 
   <script src="./assets/JS/script.js"></script>
 </body>
+<!-- footer + newsletter ============================== -->
 
 </html>
