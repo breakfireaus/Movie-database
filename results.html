@@ -20,7 +20,7 @@
             <!-- left side -->
             <div class="flex items-center">
                 <img class="mr-2" src="./assets/images/index-images/logo.png" width="50" alt="logo">
-                <a href="#" class="inline-block p-2 text-red-200 hover:text-red-100 mr-2">Home</a>
+                <a href="index.html" class="inline-block p-2 text-red-200 hover:text-red-100 mr-2">Home</a>
                 <a href="About.html" class="inline-block p-2 text-red-200 hover:text-red-100">About</a>
                 <!-- future development
               <a href="#" class="inline-block p-2 text-red-200 hover:text-red-100">News</a>
@@ -61,10 +61,33 @@
             <div class=""></div>
         </div>
 
+        <button id="modal-btn" class="hover:bg-gray-300">Click Here</button>
+
+        <section id="result-modal" class="hidden fixed z-1 left-0 top-0 h-5/5 w-5/5 overflow-auto bg-gray-300 m-1 m-auto w-3/5 shadow-md">
+            <span id="modal-content" class="">
+                <div id="modal-header" class="m-0 p-4 rounded-t-lg-0.375">
+                    <span id="close-modal" class=":focus text-black ">&times;</span>
+                    <h2 class="m-0">Modal Header</h2>
+                </div>
+                <div id="modal-body" class="py-10 py-20">
+                    <p>card goes below</p>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nulla repellendus nisi, sunt consectetur
+                        ipsa velit
+                        repudiandae aperiam modi quisquam nihil nam asperiores doloremque mollitia dolor deleniti
+                        quibusdam nemo
+                        commodi ab.</p>
+                </div>
+
+            </span>
+            
+        </section>
+
+
+
         <!--User search history-->
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/dayjs@1/dayjs.min.js"></script>
-        <script src="./assets/JS/script.js"></script>
+        <script src="./assets/JS/results.js"></script>
     </main>
 
 </body>
