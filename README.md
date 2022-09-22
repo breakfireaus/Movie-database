@@ -8,6 +8,7 @@
 
 - [Installation](#installation)
 - [Usage](#usage)
+- [Technology](#Technology)
 - [Credits](#credits)
 - [License](#license)
 
@@ -19,10 +20,24 @@
 - Main Page
 ![alt text](assets/images/Screenshot-1.jpg)
 
+## Technology
+
+- DayJS
+- Tailwind (CSS)
+- HTML
+- Jquery
+- Server Side APIs
+- WEB APIs
+
 ## Credits
 
 - Ask BCS team @ Monash university Bootcamp
 - Tutor for getting me on track
+- Traversy Media
+- W3schools
+- Tailwind DOCS
+
+
 
 ## License
 

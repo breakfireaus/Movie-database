@@ -20,7 +20,7 @@
             <!-- left side -->
             <div class="flex items-center">
                 <img class="mr-2" src="./assets/images/index-images/logo.png" width="50" alt="logo">
-                <a href="#" class="inline-block p-2 text-red-200 hover:text-red-100 mr-2">Home</a>
+                <a href="index.html" class="inline-block p-2 text-red-200 hover:text-red-100 mr-2">Home</a>
                 <a href="About.html" class="inline-block p-2 text-red-200 hover:text-red-100">About</a>
                 <!-- future development
               <a href="#" class="inline-block p-2 text-red-200 hover:text-red-100">News</a>
@@ -61,10 +61,37 @@
             <div class=""></div>
         </div>
 
+        <button id="modal-btn" class="hover:bg-gray-300">Click Here</button>
+
+        <section id="result-modal"
+            class="hidden fixed z-1 left-0 top-0 h-5/5 w-5/5 overflow-auto bg-gray-300 m-1 m-5/5 w-3/5 shadow-md">
+            <span id="modal-content" class="">
+                <div id="modal-header" class="m-0 p-4 rounded-t-lg-0.375">
+                    <div id="close-modal" class=":focus text-black ">&times;</div>
+                    <h2 class="m-0">Movie Name</h2>
+                    <div class="rounded overflow-hidden shadow-lg">
+                        <img class="w-auto" src="./assets/images/index-images/hollywood Images.jpg" alt="Mountain">
+                        <div class="px-6 py-4">
+                            <div class="font-bold text-xl mb-2">Mountain</div>
+                            <p class="text-gray-700 text-base">
+                                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatibus quia, Nonea!
+                                Maiores et perferendis eaque, exercitationem praesentium nihil.
+                            </p>
+                        </div>
+
+                    </div>
+
+
+            </span>
+
+        </section>
+
+
+
         <!--User search history-->
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/dayjs@1/dayjs.min.js"></script>
-        <script src="./assets/JS/script.js"></script>
+        <script src="./assets/JS/results.js"></script>
     </main>
 
 </body>
