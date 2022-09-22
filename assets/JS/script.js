@@ -4,7 +4,13 @@ var searchMovieEl = document.querySelector("#search-form");
 var movieInputVal = document.querySelector("#search-input").value;
 var searchButton = document.getElementById("search-button");
 
+
 // Determines the current time
+
+// APIs
+var movieAPI = 'https://api.themoviedb.org/3/movie/550?api_key=f773dd7be92f1943bb6b98b40e74c3bf'
+var musicAPI = 'https://api.spotify.com'
+
 function currentMomentDate() {
     currentDate = dayjs().format("dddd hh:mm A");
     currentDateEl.text(currentDate);
