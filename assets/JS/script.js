@@ -4,6 +4,10 @@
 var currentDateEl = $('#date-and-time');
 var currentDate;
 
+// APIs
+var movieAPI = 'https://api.themoviedb.org/3/movie/550?api_key=f773dd7be92f1943bb6b98b40e74c3bf'
+var musicAPI = 'https://api.spotify.com'
+
 function currentMomentDate() {
     currentDate = dayjs().format("dddd hh:mm A");
     currentDateEl.text(currentDate);
