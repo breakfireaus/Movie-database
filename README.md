@@ -25,7 +25,9 @@
 - Tutor for getting me on track
 - Traversy Media
 - W3schools
-- Tailwind
+- Tailwind DOCS
+
+
 
 ## License
 
