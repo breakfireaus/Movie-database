@@ -1,3 +1,5 @@
+
+
 :root {
   --c-black: #000000;
   --c-white: #ffffff;
@@ -10,4 +12,28 @@
   --c-dblue: #023047;
   --c-blue: #219ebc;
   --c-lblue: #8ecae6;
+  --modal-duration: 1s;
+  
+}
+
+/* MODAL */
+#modal-content{
+animation-name: modalopen;
+  animation-duration: var(--modal-duration);
+}
+.modal-header {
+  background: var(--modal-color);
+}
+
+#close-modal{
+  text-decoration: none;
+}
+
+@keyframes modalopen {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
 }
