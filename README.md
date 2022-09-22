@@ -8,6 +8,7 @@
 
 - [Installation](#installation)
 - [Usage](#usage)
+- [Technology](#Technology)
 - [Credits](#credits)
 - [License](#license)
 
@@ -18,6 +19,15 @@
 ## Usage
 - Main Page
 ![alt text](assets/images/Screenshot-1.jpg)
+
+## Technology
+
+- DayJS
+- Tailwind (CSS)
+- HTML
+- Jquery
+- Server Side APIs
+- WEB APIs
 
 ## Credits
 
