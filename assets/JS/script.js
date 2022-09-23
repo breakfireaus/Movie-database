@@ -1,8 +1,11 @@
-
-// time
-
-var currentDateEl = $('#date-and-time');
+var currentDateEl = $("#date-and-time");
 var currentDate;
+var searchMovieEl = document.querySelector("#search-form");
+var movieInputVal = document.querySelector("#search-input").value;
+var searchButton = document.getElementById("search-button");
+
+
+// Determines the current time
 
 // APIs
 var movieAPI = 'https://api.themoviedb.org/3/movie/550?api_key=f773dd7be92f1943bb6b98b40e74c3bf'
@@ -12,28 +15,38 @@ function currentMomentDate() {
     currentDate = dayjs().format("dddd hh:mm A");
     currentDateEl.text(currentDate);
 };
-// Weather refreshes on a set Interval
+
+// Time refreshes on a set Interval
 var refresh = setInterval(function () {
     currentMomentDate();
 }, 1000);
 
-
+// Executes current time
 function init() {
     currentMomentDate();
-
 };
 
+// Executes the search form
+function handleSearchForm(event) {
+    event.preventDefault();
 
-document.getElementById("search-button").addEventListener("click", saveData);
-function saveData(){
-    var movie= new Date();
-    window.localStorage.setItem("Movie")
-    
-}
+    if (!movieInputVal) {
+        console.error("You need to enter a movie title!");
+        return;
+    }
 
+    var queryString = "./results.html?q=" + movieInputVal;
+    var searchDate = newDate();
 
+    localStorage.setItem("movie-search", searchDate, movieInputVal)
 
-init
+    location.assign(queryString);
+};
+
+searchMovieEl.addEventListener("submit", handleSearchForm);
+
+// TO DO: CONSIDER HOW ADDING TO LOCAL STORAGE WORKS WITH THE ABOVE
+
 
 
 
