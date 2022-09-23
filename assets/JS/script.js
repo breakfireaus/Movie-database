@@ -1,9 +1,23 @@
 var currentDateEl = $("#date-and-time");
 var currentDate;
-var movieSearchForm = document.querySelector("#search-form");
-var getMovieTitle = document.querySelector("#search-input");
-var searchButton = document.querySelector("#search-button");
 
+var movieTitleInput = document.querySelector("#search-input");
+var searchButton = document.querySelector("#search-button");
+var movieList = document.querySelector("#list-history");
+var movieTitleText = movieTitleInput.value;
+
+var movieTitles = [];
+
+function init() {
+    var storedMovies = JSON.parse(localStorage.getItem("movieTitles"));
+
+    if (storedMovies !== null) {
+        movieTitles = storedMovies;
+    }
+
+    renderMovieTitles();
+    currentMomentDate();
+};
 
 // Determines the current time
 function currentMomentDate() {
@@ -16,17 +30,33 @@ var refresh = setInterval(function () {
     currentMomentDate();
 }, 1000);
 
-// Executes current time
-function init() {
-    currentMomentDate();
+function renderMovieTitles() {
+    for (var i = 0; i < movieTitles.length; i++) {
+        var movieTitle = movieTitles[i];
+
+        var li = document.createElement("li");
+        li.textContent = movieTitle;
+        li.setAttribute("data-index", i);
+        movieList.appendChild(li);
+    }
 };
 
-// Prevent form from submitting when search button pressed
-movieSearchForm.addEventListener("submit", function(event) {
+function storeMovieTitles() {
+    localStorage.setItem("movieTitles", JSON.stringify(movieTitles));
+};
+
+searchButton.addEventListener("submit", function(event) {
     event.preventDefault();
+
+    if (movieTitleText === "") {
+        return;
+    }
+
+    movieTitles.push(movieTitleText);
+
+    storeMovieTitles();
+    renderMovieTitles();
 });
 
-// Executes search button when clicked and stores entered value to local storage
-searchButton.addEventListener("click", function() {
-    localStorage.setItem("movie-title", getMovieTitle.value);
-});
+
+init()
