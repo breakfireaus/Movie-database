@@ -1,3 +1,7 @@
+// global variables
+
+var movieresultclicked = 'Robocop' ;
+
 
 // APIs
 var movieAPI = 'https://api.themoviedb.org?api_key=f773dd7be92f1943bb6b98b40e74c3bf'
@@ -55,4 +59,7 @@ function outsideClick(e) {
   }
 }
 
+
+
+document.getElementById("movie-title-filled").innerHTML = movieresultclicked;
 // end of modal script 
