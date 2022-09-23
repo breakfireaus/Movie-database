@@ -4,8 +4,8 @@ var movieresultclicked = 'Robocop' ;
 
 
 // APIs
-var movieAPI = 'https://api.themoviedb.org?api_key=f773dd7be92f1943bb6b98b40e74c3bf'
-var musicAPI = 'https://api.spotify.com'
+var movieAPIkey = 'https://api.themoviedb.org?api_key=f773dd7be92f1943bb6b98b40e74c3bf'
+var musicAPIkey = '327d3bf7241329fd83a0889ff32d9943'
 
 
 
@@ -63,3 +63,17 @@ function outsideClick(e) {
 
 document.getElementById("movie-title-filled").innerHTML = movieresultclicked;
 // end of modal script 
+
+//obtain music tracks
+fetch('https://',{
+  method: 'post',
+  headers: {
+    'Content-Type': 'application/json'
+  },
+  body: JSON.stringify({
+    name: 'moviemusic'
+  })
+}).then(res =>{
+  return res.json()
+})
+
