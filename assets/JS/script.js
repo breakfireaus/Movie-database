@@ -1,16 +1,11 @@
 var currentDateEl = $("#date-and-time");
 var currentDate;
-var searchMovieEl = document.querySelector("#search-form");
-var movieInputVal = document.querySelector("#search-input").value;
-var searchButton = document.getElementById("search-button");
+var movieSearchForm = document.querySelector("#search-form");
+var getMovieTitle = document.querySelector("#search-input");
+var searchButton = document.querySelector("#search-button");
 
 
 // Determines the current time
-
-// APIs
-var movieAPI = 'https://api.themoviedb.org/3/movie/550?api_key=f773dd7be92f1943bb6b98b40e74c3bf'
-var musicAPI = 'https://api.spotify.com'
-
 function currentMomentDate() {
     currentDate = dayjs().format("dddd hh:mm A");
     currentDateEl.text(currentDate);
@@ -26,27 +21,12 @@ function init() {
     currentMomentDate();
 };
 
-// Executes the search form
-function handleSearchForm(event) {
+// Prevent form from submitting when search button pressed
+movieSearchForm.addEventListener("submit", function(event) {
     event.preventDefault();
+});
 
-    if (!movieInputVal) {
-        console.error("You need to enter a movie title!");
-        return;
-    }
-
-    var queryString = "./results.html?q=" + movieInputVal;
-    var searchDate = newDate();
-
-    localStorage.setItem("movie-search", searchDate, movieInputVal)
-
-    location.assign(queryString);
-};
-
-searchMovieEl.addEventListener("submit", handleSearchForm);
-
-// TO DO: CONSIDER HOW ADDING TO LOCAL STORAGE WORKS WITH THE ABOVE
-
-
-
-
+// Executes search button when clicked and stores entered value to local storage
+searchButton.addEventListener("click", function() {
+    localStorage.setItem("movie-title", getMovieTitle.value);
+});
