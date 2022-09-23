@@ -5,14 +5,10 @@ var searchInput = document.querySelector('#search-input')
 
 
 // APIs
-<<<<<<< HEAD
-var searchInputVal = searchInput.value;
-var movieAPI = 'https://api.themoviedb.org?q=' + searchInputVal + '&api_key=f773dd7be92f1943bb6b98b40e74c3bf'
-var musicAPI = 'https://api.spotify.com'
-=======
-var movieAPIkey = 'https://api.themoviedb.org?api_key=f773dd7be92f1943bb6b98b40e74c3bf'
+var searchInputVal = searchInput.val();
+
+var movieAPIkey = 'https://api.themoviedb.org/3/search/movie?api_key=f773dd7be92f1943bb6b98b40e74c3bf&query=' + searchInputVal
 var musicAPIkey = '327d3bf7241329fd83a0889ff32d9943'
->>>>>>> 79935d7ae1cceb0515c859dc647b3bec0defa17a
 
 
 
@@ -31,10 +27,6 @@ var musicAPIkey = '327d3bf7241329fd83a0889ff32d9943'
 // if no results found else results pop
 
 function searchResults() {
-
-  var resultsCard = document.createElement(div)
-  var resultsName = document.createElement(h3)
-  resultsName.append(resultsCard)
    
   if (!searchInputVal) {
     console.log('Please enter a movie title')
@@ -49,6 +41,10 @@ function searchResults() {
     }) 
     .then(function (data) {
       console.log(data)
+      var resultsCard = document.createElement(button)
+      var resultsName = document.createElement(p)
+      resultsName.append(resultsCard)
+      
     })
   }
 }
@@ -92,9 +88,6 @@ function outsideClick(e) {
 
 
 document.getElementById("movie-title-filled").innerHTML = movieresultclicked;
-<<<<<<< HEAD
-// end of modal script
-=======
 // end of modal script 
 
 //obtain music tracks
@@ -107,7 +100,8 @@ fetch('https://',{
     name: 'moviemusic'
   })
 }).then(res =>{
+  console.log(res)
   return res.json()
+  
 })
 
->>>>>>> 79935d7ae1cceb0515c859dc647b3bec0defa17a
