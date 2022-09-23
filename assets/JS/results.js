@@ -6,7 +6,7 @@ var searchInput = document.querySelector('#search-input')
 
 // APIs
 var searchInputVal = searchInput.value;
-var movieAPI = 'https://api.themoviedb.org?q=' + searchInputVal + 'api_key=f773dd7be92f1943bb6b98b40e74c3bf'
+var movieAPI = 'https://api.themoviedb.org?q=' + searchInputVal + '&api_key=f773dd7be92f1943bb6b98b40e74c3bf'
 var musicAPI = 'https://api.spotify.com'
 
 
@@ -27,19 +27,26 @@ var musicAPI = 'https://api.spotify.com'
 
 function searchResults() {
 
-  var resultsCard = document.createElement()
+  var resultsCard = document.createElement(div)
+  var resultsName = document.createElement(h3)
+  resultsName.append(resultsCard)
    
   if (!searchInputVal) {
     console.log('Please enter a movie title')
   } else {
     fetch(movieAPI)
     .then(function(response) {
-      return response.json()
+      if (response.status === 404) {
+        resultsName.textcontent='No movies were found under that name'
+      } else {
+        return response.json()
+      }
     }) 
     .then(function (data) {
-      
+      console.log(data)
     })
   }
+}
 
 //when the result is clicked it appears in the modal with an image of the movie and list of soundtracks
 // function to pull an image of the movie that was clicked
