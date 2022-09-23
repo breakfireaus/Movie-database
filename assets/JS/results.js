@@ -1,6 +1,7 @@
 // global variables
 
 var movieresultclicked = 'Robocop' ;
+var searchInput = document.querySelector('#search-input')
 
 
 // APIs
@@ -22,6 +23,16 @@ var musicAPI = 'https://api.spotify.com'
 // pull the search the parameters
 // search the movie api function includes the fetch for title
 // if no results found else results pop
+
+function searchResults() {
+  var searchInputVal = searchInput.value;
+   
+  if (!searchInputVal) {
+    console.log('Please enter a movie title')
+  } else if (response.status === 404) {
+    console.log('No movie was found under that name')
+  }
+}
 
 //when the result is clicked it appears in the modal with an image of the movie and list of soundtracks
 // function to pull an image of the movie that was clicked
