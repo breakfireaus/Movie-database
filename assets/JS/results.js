@@ -1,7 +1,7 @@
 // global variables
 
 
-var searchInput = document.querySelector('#search-input')
+var searchInput = document.querySelector('#movie-search')
 var searchButton = document.querySelector('#search-button')
 
 
@@ -83,6 +83,7 @@ fetch('https://',{
   
 })
 
+var searchInputVal = searchInput.value;
 
 function searchResults() {
    
@@ -109,8 +110,9 @@ function searchResults() {
     })
   }
 }
+
+searchButton.addEventListener('click', searchResults)
+
 var movieimage = json.parse('poster_path')
-searchButton.addEventListener('click', );
-var searchInputVal = searchInput.val();
 document.getElementById("result-image-clicked").innerHTML = movieimage;
 // image to display in modal
