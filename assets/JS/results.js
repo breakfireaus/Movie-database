@@ -110,7 +110,7 @@ function searchResults() {
   }
 }
 var movieimage = json.parse('poster_path')
-searchButton.addEventListener('click', searchButton);
+searchButton.addEventListener('click', );
 var searchInputVal = searchInput.val();
 document.getElementById("result-image-clicked").innerHTML = movieimage;
 // image to display in modal
