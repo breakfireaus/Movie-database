@@ -1,14 +1,14 @@
 // global variables
 
 var movieresultclicked = 'Robocop' ;
+var searchInput = document.querySelector('#search-input')
 
 
 // APIs
-var movieAPIkey = 'https://api.themoviedb.org?api_key=f773dd7be92f1943bb6b98b40e74c3bf'
+var searchInputVal = searchInput.val();
+
+var movieAPIkey = 'https://api.themoviedb.org/3/search/movie?api_key=f773dd7be92f1943bb6b98b40e74c3bf&query=' + searchInputVal
 var musicAPIkey = '327d3bf7241329fd83a0889ff32d9943'
-
-
-
 
 //previous search history appears on page and persistant(local storage)
 // function
@@ -22,6 +22,31 @@ var musicAPIkey = '327d3bf7241329fd83a0889ff32d9943'
 // pull the search the parameters
 // search the movie api function includes the fetch for title
 // if no results found else results pop
+
+function searchResults() {
+   
+  if (!searchInputVal) {
+    console.log('Please enter a movie title')
+  } else {
+    fetch(movieAPIkey)
+    .then(function(response) {
+      if (response.status === 404) {
+        console.log('No movies were found under that name')
+        return
+      } else {
+        return response.json()
+      }
+    }) 
+    .then(function (data) {
+      console.log(data)
+      for (var i=0; i < data.length; i++) {
+        var resultsCard = document.createElement(button)
+        resultsCard[i].innerHTML = data[i].original_title
+        resultsCard.append(document.querySelector('#results'))
+      }
+    })
+  }
+}
 
 //when the result is clicked it appears in the modal with an image of the movie and list of soundtracks
 // function to pull an image of the movie that was clicked
@@ -74,6 +99,8 @@ fetch('https://',{
     name: 'moviemusic'
   })
 }).then(res =>{
+  console.log(res)
   return res.json()
+  
 })
 
