@@ -10,9 +10,6 @@ var searchInputVal = searchInput.val();
 var movieAPIkey = 'https://api.themoviedb.org/3/search/movie?api_key=f773dd7be92f1943bb6b98b40e74c3bf&query=' + searchInputVal
 var musicAPIkey = '327d3bf7241329fd83a0889ff32d9943'
 
-
-
-
 //previous search history appears on page and persistant(local storage)
 // function
 // search bar 
@@ -44,9 +41,7 @@ function searchResults() {
       console.log(data)
       for (var i=0; i < data.length; i++) {
         var resultsCard = document.createElement(button)
-        var resultsName = document.createElement(p)
-        resultsName.append(resultsCard)
-        resultsName[i].textContent = data[i].results.original_title
+        resultsCard[i].innerHTML = data[i].original_title
         resultsCard.append(document.querySelector('#results'))
       }
     })
