@@ -34,17 +34,21 @@ function searchResults() {
     fetch(movieAPI)
     .then(function(response) {
       if (response.status === 404) {
-        resultsName.textcontent='No movies were found under that name'
+        console.log('No movies were found under that name')
+        return
       } else {
         return response.json()
       }
     }) 
     .then(function (data) {
       console.log(data)
-      var resultsCard = document.createElement(button)
-      var resultsName = document.createElement(p)
-      resultsName.append(resultsCard)
-      
+      for (var i=0; i < data.length; i++) {
+        var resultsCard = document.createElement(button)
+        var resultsName = document.createElement(p)
+        resultsName.append(resultsCard)
+        resultsName[i].textContent = data[i].results.original_title
+        resultsCard.append(document.querySelector('#results'))
+      }
     })
   }
 }
