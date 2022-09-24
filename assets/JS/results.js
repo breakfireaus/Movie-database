@@ -104,10 +104,20 @@ function searchResults() {
       console.log(data)
       for (var i=0; i < data.length; i++) {
         var resultsCard = document.createElement(button)
+        resultsCard.onclick = modalDisplay
         resultsCard[i].innerHTML = data[i].original_title
         resultsCard.append(document.querySelector('#results'))
       }
+
+      function modalDisplay() {
+        document.querySelector('#movie-title-filled').textContent = data[i].original_title
+        document.querySelector('#image').src = data[i].poster_path
+
+      }
+
     })
+
+    
   }
 }
 
