@@ -1,11 +1,13 @@
 // global variables
 
-var movieresultclicked = 'Robocop' ;
-var searchInput = document.querySelector('#search-input')
+
+var searchInput = document.querySelector('#movie-search')
+var searchButton = document.querySelector('#search-button')
+
 
 
 // APIs
-var searchInputVal = searchInput.value;
+
 
 var movieAPIkey = 'https://api.themoviedb.org/3/search/movie?api_key=f773dd7be92f1943bb6b98b40e74c3bf&query=' + searchInputVal
 var musicAPIkey = '327d3bf7241329fd83a0889ff32d9943'
@@ -23,33 +25,11 @@ var musicAPIkey = '327d3bf7241329fd83a0889ff32d9943'
 // search the movie api function includes the fetch for title
 // if no results found else results pop
 
-function searchResults() {
-   
-  if (!searchInputVal) {
-    console.log('Please enter a movie title')
-  } else {
-    fetch(movieAPIkey)
-    .then(function(response) {
-      if (response.status === 404) {
-        console.log('No movies were found under that name')
-        return
-      } else {
-        return response.json()
-      }
-    }) 
-    .then(function (data) {
-      console.log(data)
-      for (var i=0; i < data.length; i++) {
-        var resultsCard = document.createElement(button)
-        resultsCard[i].innerHTML = data[i].original_title
-        resultsCard.append(document.querySelector('#results'))
-      }
-    })
-  }
-}
+
+
 
 //when the result is clicked it appears in the modal with an image of the movie and list of soundtracks
-// function to pull an image of the movie that was clicked
+// function to pull the image of the movie that was clicked
 // function to pull from music database api to show soundtrack File
 // append into modal
 
@@ -84,9 +64,8 @@ function outsideClick(e) {
   }
 }
 
-
-
 document.getElementById("movie-title-filled").innerHTML = movieresultclicked;
+
 // end of modal script 
 
 //obtain music tracks
@@ -104,3 +83,36 @@ fetch('https://',{
   
 })
 
+var searchInputVal = searchInput.value;
+
+function searchResults() {
+   
+  if (!searchInputVal) {
+    console.log('Please enter a movie title')
+  } else {
+    fetch(movieAPIkey)
+    console.log(movieAPIkey)
+    .then(function(response) {
+      if (response.status === 404) {
+        console.log('No movies were found under that name')
+        return
+      } else {
+        return response.json()
+      }
+    }) 
+    .then(function (data) {
+      console.log(data)
+      for (var i=0; i < data.length; i++) {
+        var resultsCard = document.createElement(button)
+        resultsCard[i].innerHTML = data[i].original_title
+        resultsCard.append(document.querySelector('#results'))
+      }
+    })
+  }
+}
+
+searchButton.addEventListener('click', searchResults)
+
+var movieimage = json.parse('poster_path')
+document.getElementById("result-image-clicked").innerHTML = movieimage;
+// image to display in modal
