@@ -31,7 +31,7 @@ function searchResults() {
   if (!searchInputVal) {
     console.log('Please enter a movie title')
   } else {
-    fetch(movieAPI)
+    fetch(movieAPIkey)
     .then(function(response) {
       if (response.status === 404) {
         console.log('No movies were found under that name')
