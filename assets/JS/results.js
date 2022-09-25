@@ -121,6 +121,27 @@ function searchResults() {
   }
 }
 
+function playlistPull() {
+  fetch('https://api.deezer.com/search/album?q=' + resultsCard.innerHTML + 'soundtrack&appid=' + musicAPIkey)
+  .then (function (response) {
+    if (response.status === 404) {
+      console.log('No soundtrack could be found')
+    } else {
+      return response.json()
+    }
+  })
+  .then (function (data) {
+    console.log(data)
+    var searchID = data.id
+    searchByID 
+
+    function searchByID() {
+      fetch('https://api.deezer.com/album/' + searchID)
+    }
+  })
+
+}
+
 searchButton.addEventListener('click', searchResults)
 
 var movieimage = json.parse('poster_path')
