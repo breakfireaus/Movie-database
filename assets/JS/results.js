@@ -25,9 +25,6 @@ var musicAPIkey = '327d3bf7241329fd83a0889ff32d9943'
 // search the movie api function includes the fetch for title
 // if no results found else results pop
 
-
-
-
 //when the result is clicked it appears in the modal with an image of the movie and list of soundtracks
 // function to pull the image of the movie that was clicked
 // function to pull from music database api to show soundtrack File
@@ -112,6 +109,7 @@ function searchResults() {
       function modalDisplay() {
         document.querySelector('#movie-title-filled').textContent = data[i].original_title
         document.querySelector('#image').src = data[i].poster_path
+        playlistPull
 
       }
 
@@ -119,6 +117,34 @@ function searchResults() {
 
     
   }
+}
+
+function playlistPull() {
+  fetch('https://api.deezer.com/search/album?q=' + resultsCard.innerHTML + 'soundtrack&appid=' + musicAPIkey)
+  .then (function (response) {
+    if (response.status === 404) {
+      console.log('No soundtrack could be found')
+    } else {
+      return response.json()
+    }
+  })
+  .then (function (data) {
+    console.log(data)
+    var searchID = data.id
+
+    fetch('https://api.deezer.com/album/' + searchID)
+    .then(function (response) {
+      return response.json()
+    })
+    .then(function (data) {
+      console.log(data)
+      for (var i = 0; i < data.tracks.length; i++) {
+        var albumTrack = document.createElement(li)
+        albumTrack[i].textContent = data.tracks[i].title + ' by ' + data.tracks[i].artist.name 
+        albumTrack.append(document.querySelector('#music-list'))
+      }
+    })
+  })
 }
 
 searchButton.addEventListener('click', searchResults)
