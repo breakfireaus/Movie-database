@@ -132,6 +132,20 @@ function playlistPull() {
   })
   .then (function (data) {
     console.log(data)
+    var searchID = data.id
+    })
+
+    fetch('https://api.deezer.com/album/' + searchID)
+    .then(function (response) {
+      return response.json()
+    })
+    .then(function (data) {
+      console.log(data)
+      for (var i = 0; i < data.tracks.length; i++) {
+        var albumTrack = document.createElement(li)
+        albumTrack[i].textContent = data.tracks[i].title + ' by ' + data.tracks[i].artist.name 
+        albumTrack.append(document.querySelector('#music-list'))
+      }
     })
 }
 
