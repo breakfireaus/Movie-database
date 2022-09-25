@@ -36,6 +36,7 @@
 - Traversy Media
 - W3schools
 - Tailwind DOCS
+- WebDev Simplified
 
 
 
