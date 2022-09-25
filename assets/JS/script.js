@@ -1,11 +1,9 @@
 var currentDateEl = $("#date-and-time");
 var currentDate;
-
 var movieTitleInput = document.querySelector("#search-input");
-var searchButton = document.querySelector("#search-button");
+var searchForm = document.querySelector("#search-form");
 var movieList = document.querySelector("#list-history");
-var movieTitleText = movieTitleInput.value;
-
+var movieTitleText = "";
 var movieTitles = [];
 
 function init() {
@@ -31,22 +29,30 @@ var refresh = setInterval(function () {
 }, 1000);
 
 function renderMovieTitles() {
+    movieList.textContent = "";
     for (var i = 0; i < movieTitles.length; i++) {
         var movieTitle = movieTitles[i];
 
         var li = document.createElement("li");
-        li.textContent = movieTitle;
+        var newMovieTitle = movieTitle.split(" ");  
+        var title = "";
+        for (var j = 0; j < newMovieTitle.length; j++) {
+          title = title + newMovieTitle[j].substring(0,1).toUpperCase() + newMovieTitle[j].substring(1).toLowerCase() + " ";
+        };
+        li.textContent = "";
+        li.textContent = title;
         li.setAttribute("data-index", i);
         movieList.appendChild(li);
-    }
+    };
 };
 
 function storeMovieTitles() {
     localStorage.setItem("movieTitles", JSON.stringify(movieTitles));
 };
 
-searchButton.addEventListener("submit", function(event) {
+searchForm.addEventListener("submit", function(event) {
     event.preventDefault();
+    movieTitleText = movieTitleInput.value;
 
     if (movieTitleText === "") {
         return;
@@ -60,3 +66,5 @@ searchButton.addEventListener("submit", function(event) {
 
 
 init()
+
+// TO DO: INCLUDE LINK TO API CALL ON PREVIOUS SEARCH HISTORY ITEMS
