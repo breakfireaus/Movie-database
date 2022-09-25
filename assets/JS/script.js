@@ -5,6 +5,7 @@ var searchForm = document.querySelector("#search-form");
 var movieList = document.querySelector("#list-history");
 var movieTitleText = "";
 var movieTitles = [];
+var clearHistoryBtn = document.querySelector("#clear-history");
 
 function init() {
     var storedMovies = JSON.parse(localStorage.getItem("movieTitles"));
@@ -61,6 +62,13 @@ searchForm.addEventListener("submit", function(event) {
     movieTitles.push(movieTitleText);
 
     storeMovieTitles();
+    renderMovieTitles();
+});
+
+// Clear previous history
+clearHistoryBtn.addEventListener("click", function() {
+    localStorage.clear();
+    movieTitles = [];
     renderMovieTitles();
 });
 
