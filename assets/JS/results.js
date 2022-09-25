@@ -132,14 +132,7 @@ function playlistPull() {
   })
   .then (function (data) {
     console.log(data)
-    var searchID = data.id
-    searchByID 
-
-    function searchByID() {
-      fetch('https://api.deezer.com/album/' + searchID)
-    }
-  })
-
+    })
 }
 
 searchButton.addEventListener('click', searchResults)
