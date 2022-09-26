@@ -61,24 +61,12 @@ function outsideClick(e) {
   }
 }
 
-document.getElementById("movie-title-filled").innerHTML = movieresultclicked;
+
 
 // end of modal script 
 
 //obtain music tracks
-fetch('https://',{
-  method: 'post',
-  headers: {
-    'Content-Type': 'application/json'
-  },
-  body: JSON.stringify({
-    name: 'moviemusic'
-  })
-}).then(res =>{
-  console.log(res)
-  return res.json()
-  
-})
+
 
 var searchInputVal = searchInput.value;
 
@@ -149,6 +137,6 @@ function playlistPull() {
 
 searchButton.addEventListener('click', searchResults)
 
-var movieimage = json.parse('poster_path')
-document.getElementById("result-image-clicked").innerHTML = movieimage;
+
+
 // image to display in modal
