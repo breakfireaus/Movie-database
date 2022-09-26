@@ -2,6 +2,7 @@ var currentDateEl = $("#date-and-time");
 var currentDate;
 var movieTitleInput = document.querySelector("#movie-search");
 var searchForm = document.querySelector("#search-form");
+var searchButton = document.querySelector('#search-button')
 var movieList = document.querySelector("#list-history");
 var movieTitleText = "";
 var movieTitles = [];
@@ -29,6 +30,7 @@ var refresh = setInterval(function () {
     currentMomentDate();
 }, 1000);
 
+// Displays the movie titles on the previous history page
 function renderMovieTitles() {
     movieList.textContent = "";
     for (var i = 0; i < movieTitles.length; i++) {
@@ -43,10 +45,15 @@ function renderMovieTitles() {
         li.textContent = "";
         li.textContent = title;
         li.setAttribute("data-index", i);
+        li.addEventListener("click", function() {
+            var queryString = 'results.html?q=' + title;
+            location.assign(queryString);
+        });
         movieList.appendChild(li);
     };
 };
 
+// Stores movie titles to local storage
 function storeMovieTitles() {
     localStorage.setItem("movieTitles", JSON.stringify(movieTitles));
 };
@@ -60,6 +67,9 @@ searchForm.addEventListener("submit", function(event) {
     }
 
     movieTitles.push(movieTitleText);
+
+    var queryString = 'results.html?q=' + movieTitleText;
+    location.assign(queryString);
 
     storeMovieTitles();
     renderMovieTitles();
@@ -75,4 +85,3 @@ clearHistoryBtn.addEventListener("click", function() {
 
 init()
 
-// TO DO: INCLUDE LINK TO API CALL ON PREVIOUS SEARCH HISTORY ITEMS
