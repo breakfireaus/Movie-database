@@ -85,22 +85,17 @@ function searchResults() {
       for (var i=0; i < data.length; i++) {
         var resultsCard = document.createElement('button');
         document.writeln(searchInputVal)
-        resultsCard.onclick = modalDisplay;
-        resultsCard[i].innerHTML = data[i].original_title;
-        resultsCard.append(document.querySelector('#results'));
+        resultsCard.onclick = resultsModalDisplay;
+        resultsCard.innerHTML = data[i].original_title;
+        document.querySelector('#results').append(resultsCard)
       }
 
-      function modalDisplay() {
+      function resultsModalDisplay() {
         document.querySelector('#movie-title-filled').textContent = data[i].original_title;
         document.querySelector('#image').src = data[i].poster_path;
-       
-
       }
 
     });
-
-    
-  
 }
 
 function playlistPull() {
