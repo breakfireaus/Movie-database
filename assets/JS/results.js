@@ -86,7 +86,7 @@ function searchResults() {
         var resultsCard = document.createElement('button');
         document.writeln(searchInputVal)
         resultsCard.onclick = resultsModalDisplay;
-        resultsCard.innerHTML = data[i].original_title;
+        resultsCard.textContent = data[i].original_title;
         document.querySelector('#results').append(resultsCard)
       }
 
