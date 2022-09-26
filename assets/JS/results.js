@@ -69,8 +69,8 @@ function outsideClick(e) {
 
 searchButton.addEventListener('click', searchResults)
 
-function searchResults() {
-
+function searchResults(e) {
+  e.preventDefault()
   var searchInput = document.querySelector('input[name="movie-search"]')
   var searchInputVal = searchInput.value;
   var movieAPIkey = 'https://api.themoviedb.org/3/search/movie?api_key=f773dd7be92f1943bb6b98b40e74c3bf&query=' + searchInputVal;
@@ -82,11 +82,10 @@ function searchResults() {
     }) 
     .then(function (data) {
       console.log(data);
-      for (var i=0; i < data.length; i++) {
+      for (var i=0; i < data.results.length; i++) {
         var resultsCard = document.createElement('button');
-        document.writeln(searchInputVal)
         resultsCard.onclick = resultsModalDisplay;
-        resultsCard.innerHTML = data[i].original_title;
+        resultsCard.innerHTML = data.results[i].original_title;
         document.querySelector('#results').append(resultsCard)
       }
 
