@@ -19,10 +19,6 @@ var musicAPIkey = '327d3bf7241329fd83a0889ff32d9943'
 // retrieve from local Storage
 // creating the list items
 
-//search results appear on page
-// function
-// pull the search the parameters
-// search the movie api function includes the fetch for title
 // if no results found else results pop
 
 //when the result is clicked it appears in the modal with an image of the movie and list of soundtracks
@@ -92,8 +88,8 @@ function searchResults(event) {
         modal.style.display = 'block';
         var modalTitle = document.querySelector('#movie-title-filled');
         var modalImage = document.querySelector('#image');
-        modalTitle.textContent = data.results[1].original_title;
-        modalImage.href = data.results[1].poster_path;
+        modalTitle.textContent = data.results[i].original_title;
+        modalImage.href = data.results[i].poster_path;
       }
 
     });
