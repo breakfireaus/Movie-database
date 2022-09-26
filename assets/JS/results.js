@@ -1,7 +1,7 @@
 // global variables
 
 
-var searchInput = $('input[name="movie-search"]')
+
 var searchButton = document.querySelector('#search-button')
 
 
@@ -66,13 +66,14 @@ function outsideClick(e) {
 
 //obtain music tracks
 
-var searchInputVal = searchInput.value;
-var movieAPIkey = 'https://api.themoviedb.org/3/search/movie?api_key=f773dd7be92f1943bb6b98b40e74c3bf&query=' + searchInputVal;
 
+searchButton.addEventListener('click', searchResults)
 
 function searchResults() {
 
-  
+  var searchInput = document.querySelector('input[name="movie-search"]')
+  var searchInputVal = searchInput.value;
+  var movieAPIkey = 'https://api.themoviedb.org/3/search/movie?api_key=f773dd7be92f1943bb6b98b40e74c3bf&query=' + searchInputVal;
    
     fetch(movieAPIkey)
     .then(function (response) {
@@ -84,22 +85,17 @@ function searchResults() {
       for (var i=0; i < data.length; i++) {
         var resultsCard = document.createElement('button');
         document.writeln(searchInputVal)
-        resultsCard.onclick = modalDisplay;
-        resultsCard[i].innerHTML = data[i].original_title;
-        resultsCard.append(document.querySelector('#results'));
+        resultsCard.onclick = resultsModalDisplay;
+        resultsCard.innerHTML = data[i].original_title;
+        document.querySelector('#results').append(resultsCard)
       }
 
-      function modalDisplay() {
+      function resultsModalDisplay() {
         document.querySelector('#movie-title-filled').textContent = data[i].original_title;
         document.querySelector('#image').src = data[i].poster_path;
-       
-
       }
 
     });
-
-    
-  
 }
 
 function playlistPull() {
@@ -130,7 +126,7 @@ function playlistPull() {
   })
 }
 
-searchButton.addEventListener('click', searchResults)
+
 
 
 // image to display in modal
