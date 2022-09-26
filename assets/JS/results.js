@@ -20,6 +20,7 @@ var searchButton = document.querySelector('#search-button')
 
 var musicAPIkey = '327d3bf7241329fd83a0889ff32d9943'
 
+<<<<<<< Updated upstream
 //previous search history appears on page and persistant(local storage)
 // function
 // search bar 
@@ -39,6 +40,8 @@ var musicAPIkey = '327d3bf7241329fd83a0889ff32d9943'
 // append into modal
 
 
+=======
+>>>>>>> Stashed changes
 
 
 // Modal JS 
@@ -104,7 +107,7 @@ function searchResults() {
       }
 
     });
-}
+  }
 
 function playlistPull() {
   fetch('https://api.deezer.com/search/album?q=' + resultsCard.innerHTML + 'soundtrack&appid=' + musicAPIkey)
@@ -131,8 +134,12 @@ function playlistPull() {
         albumTrack.append(document.querySelector('#music-list'))
       }
     })
+<<<<<<< Updated upstream
   })
 }
+=======
+})}
+>>>>>>> Stashed changes
 
 
 
