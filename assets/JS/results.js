@@ -12,11 +12,11 @@ var searchButton = document.querySelector('#search-button')
 
 var musicAPIkey = '327d3bf7241329fd83a0889ff32d9943'
 
-//previous search history appears on page and persistant(local storage)
+//previous search history appears on page and persistent(local storage)
 // function
 // search bar 
 // and button to save to local storage
-// retrive from local Storage
+// retrieve from local Storage
 // creating the list items
 
 //search results appear on page
