@@ -43,12 +43,12 @@
         <div class="">
             <form id="" class="">
                 <input id="movie-search" name="movie-search" class="" type="text" placeholder="Search for a new movie title!" />
-                <button id='search-button' class="" >Search!</button>
+                <button id='search-button' class="text-indigo-100" >Search!</button>
             </form>
         </div>
 
         <!--List of search results-->
-        <div class="bg-indigo-600">
+        <div class="bg-indigo-600 text-indigo-100 md:w-1/2">
             <h2>Showing results for <span id=""></span></h2>
             <div id="results"></div>
             <button id="clear-results" type="button" class="flex-1 bg-red-300 hover:bg-red-400 text-red-800 rounded-full py-0 px-16">Clear Search Results</button>
@@ -62,22 +62,19 @@
             <div class=""></div>
         </div>
     </section>
-        <button id="modal-btn" class="hover:bg-gray-300">Click Here</button>
 
         <section id="result-modal"
             class="hidden fixed z-1 left-0 top-0 h-5/5 w-5/5 overflow-auto bg-gray-300 m-1 m-5/5 w-3/5 shadow-md">
             <span id="modal-content" class="">
                 <div id="modal-header" class="m-0 p-4 rounded-t-lg-0.375">
                     <div id="close-modal" class=":focus text-black ">&times;</div>
-                    <h2 id="movie-title-filled" class="m-0">Movie Name</h2>
+                    <h2 id="movie-title-filled" class="m-0"></h2>
                     <div class="rounded overflow-hidden shadow-lg">
-                        <img id="image" class="w-auto" src="./assets/images/index-images/hollywood Images.jpg" alt="Mountain">
+
+                        <img id="image" class="w-auto" src="" alt="Movie-Image">
                         <div class="px-6 py-4">
                             <div class="font-bold text-xl mb-2"></div>
-                            <li id="music-list" class="text-gray-700 text-base">
-                                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatibus quia, Nonea!
-                                Maiores et perferendis eaque, exercitationem praesentium nihil.
-                            </li>
+                            <li id="music-list" class="text-gray-700 text-base"></li>
                         </div>
 
                     </div>
@@ -96,5 +93,13 @@
     </main>
 
 </body>
+<!-- <footer class="bg-indigo-600 text-indigo-100 mb-10 p-10 content-end">Developed and designed by Rachael, Miles and Matthew Copyright &copy; 2022</footer> -->
+
+<footer class="bg-indigo-600 p-4 md:flex md:items-center md:justify-between md:p-6 dark:bg-gray-800">
+    <span class="bg-indigo-600 text-sm text-indigo-100 sm:text-center dark:text-gray-400">© 2022 Developed and designed by Rachael, Miles and Matthew</a> All Rights Reserved.
+    </span>
+
+</footer>
+
 
 </html>
