@@ -1,6 +1,6 @@
 var currentDateEl = $("#date-and-time");
 var currentDate;
-var movieTitleInput = document.querySelector("#search-input");
+var movieTitleInput = document.querySelector("#movie-search");
 var searchForm = document.querySelector("#search-form");
 var movieList = document.querySelector("#list-history");
 var movieTitleText = "";
