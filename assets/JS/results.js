@@ -61,9 +61,18 @@ function outsideClick(e) {
   }
 }
 
+<<<<<<< HEAD
 // end of modal script 
 
 //obtain music tracks
+=======
+
+
+// end of modal script 
+
+//obtain music tracks
+
+>>>>>>> eb3d9a25ea3a9379d60b1f3c784d0f8f5ef9e0a1
 
 var searchInputVal = searchInput.value;
 
@@ -132,4 +141,10 @@ function playlistPull() {
 }
 
 searchButton.addEventListener('click', searchResults)
+<<<<<<< HEAD
+=======
+
+
+
+>>>>>>> eb3d9a25ea3a9379d60b1f3c784d0f8f5ef9e0a1
 // image to display in modal
