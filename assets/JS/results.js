@@ -12,11 +12,11 @@ var searchButton = document.querySelector('#search-button')
 
 var musicAPIkey = '327d3bf7241329fd83a0889ff32d9943'
 
-//previous search history appears on page and persistant(local storage)
+//previous search history appears on page and persistent(local storage)
 // function
 // search bar 
 // and button to save to local storage
-// retrive from local Storage
+// retrieve from local Storage
 // creating the list items
 
 //search results appear on page
@@ -69,11 +69,11 @@ function outsideClick(e) {
 
 searchButton.addEventListener('click', searchResults)
 
-function searchResults() {
-
+function searchResults(e) {
+  e.preventDefault()
   var searchInput = document.querySelector('input[name="movie-search"]')
   var searchInputVal = searchInput.value;
-  var movieAPIkey = 'https://api.themoviedb.org/3/search/movie?api_key=f773dd7be92f1943bb6b98b40e74c3bf&query=' + searchInputVal;
+  var movieAPIkey = 'https://api.themoviedb.org/3/search/movie?api_key=f773dd7be92f1943bb6b98b40e74c3bf&query=' + searchInputVal + '&total_results=5';
    
     fetch(movieAPIkey)
     .then(function (response) {
@@ -82,17 +82,21 @@ function searchResults() {
     }) 
     .then(function (data) {
       console.log(data);
-      for (var i=0; i < data.length; i++) {
+      for (var i=0; i < data.results.length; i++) {
         var resultsCard = document.createElement('button');
-        document.writeln(searchInputVal)
-        resultsCard.onclick = resultsModalDisplay;
-        resultsCard.textContent = data[i].original_title;
+        resultsCard.addEventListener('click', resultsModalDisplay);
+        resultsCard.textContent = data.results[i].original_title + ', ' + data.results[i].release_date;
         document.querySelector('#results').append(resultsCard)
       }
 
       function resultsModalDisplay() {
-        document.querySelector('#movie-title-filled').textContent = data[i].original_title;
-        document.querySelector('#image').src = data[i].poster_path;
+        modal.style.display = 'block';
+        var modalTitle = document.querySelector('#movie-title-filled')
+        var modalImage = document.querySelector('#image')
+        if (data.results[i].original_title === resultsCard.textContent) {
+          modalTitle.textContent = data.results[i].original_title;
+          modalImage.src = data.results[i].poster_path;
+        }
       }
 
     });
