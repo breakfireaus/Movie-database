@@ -20,30 +20,6 @@ var searchButton = document.querySelector('#search-button')
 
 var musicAPIkey = '327d3bf7241329fd83a0889ff32d9943'
 
-<<<<<<< Updated upstream
-//previous search history appears on page and persistant(local storage)
-// function
-// search bar 
-// and button to save to local storage
-// retrive from local Storage
-// creating the list items
-
-//search results appear on page
-// function
-// pull the search the parameters
-// search the movie api function includes the fetch for title
-// if no results found else results pop
-
-//when the result is clicked it appears in the modal with an image of the movie and list of soundtracks
-// function to pull the image of the movie that was clicked
-// function to pull from music database api to show soundtrack File
-// append into modal
-
-
-=======
->>>>>>> Stashed changes
-
-
 // Modal JS 
 // Get DOM Elements
 const modal = document.querySelector('#result-modal');
@@ -134,12 +110,10 @@ function playlistPull() {
         albumTrack.append(document.querySelector('#music-list'))
       }
     })
-<<<<<<< Updated upstream
+
   })
 }
-=======
-})}
->>>>>>> Stashed changes
+
 
 
 
