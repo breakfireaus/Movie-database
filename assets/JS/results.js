@@ -98,11 +98,10 @@ function searchResults(event) {
   event.preventDefault();
 
   document.querySelector("#results").innerHTML = "";
-  
+
   var searchInput = document.querySelector('input[name="movie-search"]');
   var searchInputVal = searchInput.value;
   var movieAPIkey = "https://api.themoviedb.org/3/search/movie?api_key=f773dd7be92f1943bb6b98b40e74c3bf&query=" + searchInputVal;
-  document.querySelector("#results").innerHTML = "";
   fetch(movieAPIkey)
     .then(function (response) {
       console.log(response);
@@ -138,31 +137,11 @@ function playlistPull() {
     fetch('https://api.deezer.com/album/' + searchID)
 
     .then(function (response) {
-      if (response.status === 404) {
-        console.log('No soundtrack could be found')
-      } else {
         return response.json()
-      }
+      
     })
     .then(function (data) {
       console.log(data)
-
-      var searchID = data.id
-
-      fetch('https://api.deezer.com/album/' + searchID)
-        .then(function (response) {
-          return response.json()
-        })
-        .then(function (data) {
-          console.log(data)
-          for (var i = 0; i < data.tracks.length; i++) {
-            var albumTrack = document.createElement(li)
-            albumTrack[i].textContent = data.tracks[i].title + ' by ' + data.tracks[i].artist.name
-            albumTrack.append(document.querySelector('#music-list'))
-          }
-        })
-
-
       for (var i = 0; i < data.tracks.length; i++) {
         var albumTrack = document.createElement(li)
         albumTrack.textContent = data.tracks[i].title + ' by ' + data.tracks[i].artist.name 
