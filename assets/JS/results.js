@@ -92,9 +92,9 @@ let resultsArray = [];
 
 let resultsArray = [];
 
-searchButton.addEventListener("click", searchResults);
+searchButton.addEventListener("click", playlistPull);
 
-function searchResults(event) {
+/*function searchResults(event) {
   event.preventDefault();
 
   document.querySelector("#results").innerHTML = "";
@@ -119,36 +119,35 @@ function searchResults(event) {
           resultsCard.textContent = data.results[i].original_title + ", " + data.results[i].release_date;
           document.querySelector("#results").append(resultsCard);
           resultsCard.classList.add('search-results')
-          var resultNumber = resultsCard.setAttribute('id', 0);
-          resultNumber++;
-          
-
-          function resultsModalDisplay() {
-            modal.style.display = "block";
-            var modalTitle = document.querySelector("#movie-title-filled");
-            var modalImage = document.querySelector("#image");
-            console.log(resultsCard.getAttribute('id'))
-            /*if (resultsCard[i].getAttribute('id') === resultsArray[i].id) {
-              modalTitle.textContent = resultsArray.original_title;
-              modalImage.href = resultsArray.poster_path;
-            }*/
-          
         }
+
+        function resultsModalDisplay() {
+          modal.style.display = "block";
+          var modalTitle = document.querySelector("#movie-title-filled");
+          var modalImage = document.querySelector("#image");
+          console.log(resultsCard.getAttribute('id'))
         }
     });
-}
+}*/
 
 function playlistPull() {
-  fetch('https://api.deezer.com/search/album?q=' + resultsCard.innerHTML + 'soundtrack&appid=' + musicAPIkey)
+  var searchInput = document.querySelector('input[name="movie-search"]');
+  var searchInputVal = searchInput.value;
+  var musicAPIkey = '327d3bf7241329fd83a0889ff32d9943';
+  var musicAPILink = 'https://api.deezer.com/search/album?q=' + searchInputVal + '+soundtrack&appid=' + musicAPIkey;
+  fetch(musicAPILink)
   .then (function (response) {
-      return response.json() 
+    console.log(response);
+    return response.json() ;
   })
   .then (function (data) {
-    console.log(data)
-    var searchID = data.id
-    fetch('https://api.deezer.com/album/' + searchID)
+    console.log(data);
+    document.querySelector("#results").textContent = data[0].link;
+    //var searchID = data.id
+    /*fetch('https://api.deezer.com/album/' + searchID)
 
     .then(function (response) {
+      console.log(response)
         return response.json()
       
     })
@@ -160,5 +159,5 @@ function playlistPull() {
         document.querySelector('#music-list').append(albumTrack)
     }
   }
-  )}   
-  )}
+)*/}   
+  );}
