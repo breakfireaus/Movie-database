@@ -29,6 +29,15 @@ animation-name: modalopen;
   text-decoration: none;
 }
 
+.search-results {
+  display: block;
+  text-align: center;
+  margin-top: 5px;
+  margin-bottom: 5px;
+  width: 50%;
+  
+}
+
 @keyframes modalopen {
   from {
     opacity: 0;
