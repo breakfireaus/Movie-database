@@ -34,7 +34,6 @@ const modalBtn = document.querySelector('#modal-btn');
 const closeBtn = document.querySelector('#close-modal');
 
 // Events
-modalBtn.addEventListener('click', openModal);
 closeBtn.addEventListener('click', closeModal);
 window.addEventListener('click', outsideClick);
 
@@ -90,15 +89,19 @@ let resultsArray = [];
 } */
 
 // Searches for the movie using the search form on the results page
+
+let resultsArray = [];
+
 searchButton.addEventListener("click", searchResults);
+
 function searchResults(event) {
   event.preventDefault();
+
+  document.querySelector("#results").innerHTML = "";
+  
   var searchInput = document.querySelector('input[name="movie-search"]');
   var searchInputVal = searchInput.value;
-  var movieAPIkey =
-    "https://api.themoviedb.org/3/search/movie?api_key=f773dd7be92f1943bb6b98b40e74c3bf&query=" +
-    searchInputVal;
-  fetch(movieAPIkey);
+  var movieAPIkey = "https://api.themoviedb.org/3/search/movie?api_key=f773dd7be92f1943bb6b98b40e74c3bf&query=" + searchInputVal;
   document.querySelector("#results").innerHTML = "";
   fetch(movieAPIkey)
     .then(function (response) {
@@ -107,15 +110,10 @@ function searchResults(event) {
     })
     .then(function (data) {
       console.log(data);
-      for (var i = 0; i < data.results.length; i++) {
-        resultsArray = [...data.results];
         for (var i = 0; i < 5; i++) {
           var resultsCard = document.createElement("button");
           resultsCard.addEventListener("click", resultsModalDisplay);
-          resultsCard.textContent =
-            data.results[i].original_title +
-            ", " +
-            data.results[i].release_date;
+          resultsCard.textContent = data.results[i].original_title + ", " + data.results[i].release_date;
           resultsCard.setAttribute("id", data.results[i].id);
           document.querySelector("#results").append(resultsCard);
         }
@@ -126,7 +124,6 @@ function searchResults(event) {
           modalTitle.textContent = data.results[i].original_title;
           modalImage.href = data.results[i].poster_path;
         }
-      }
     });
 }
 
