@@ -1,7 +1,30 @@
+
+
+var currentDateEl = $("#date-and-time");
+var currentDate;
+
+function currentMomentDate() {
+  currentDate = dayjs().format("dddd hh:mm A");
+  currentDateEl.text(currentDate);
+};
+
+// Time refreshes on a set Interval
+var refresh = setInterval(function () {
+  currentMomentDate();
+}, 1000);
+
+// global variables
+
+var searchButton = document.querySelector('#search-button')
+
+// APIs
+
+
 // Declare global variables
 var searchButton = document.querySelector('#search-button')
 
 // API keys
+
 var musicAPIkey = '327d3bf7241329fd83a0889ff32d9943'
 
 
@@ -175,4 +198,3 @@ function playlistPull() {
 
     })
 }
-
