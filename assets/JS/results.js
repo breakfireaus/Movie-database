@@ -92,9 +92,9 @@ let resultsArray = [];
 
 let resultsArray = [];
 
-searchButton.addEventListener("click", playlistPull);
+searchButton.addEventListener("click", searchResults);
 
-/*function searchResults(event) {
+function searchResults(event) {
   event.preventDefault();
 
   document.querySelector("#results").innerHTML = "";
@@ -117,6 +117,7 @@ searchButton.addEventListener("click", playlistPull);
           var resultsCard = document.createElement("button");
           resultsCard.addEventListener("click", resultsModalDisplay);
           resultsCard.textContent = data.results[i].original_title + ", " + data.results[i].release_date;
+          resultsCard.setAttribute('id', data.results[i].id)
           document.querySelector("#results").append(resultsCard);
           resultsCard.classList.add('search-results')
         }
@@ -126,23 +127,24 @@ searchButton.addEventListener("click", playlistPull);
           var modalTitle = document.querySelector("#movie-title-filled");
           var modalImage = document.querySelector("#image");
           console.log(resultsCard.getAttribute('id'))
+          modalTitle.textContent = resultsArray[i].original_title
+          modalImage.href = resultsArray[i].poster_path
         }
     });
-}*/
+}
 
-function playlistPull() {
+function playlistPull(event) {
+  event.preventDefault()
   var searchInput = document.querySelector('input[name="movie-search"]');
   var searchInputVal = searchInput.value;
-  var musicAPIkey = '327d3bf7241329fd83a0889ff32d9943';
-  var musicAPILink = 'https://api.deezer.com/search/album?q=' + searchInputVal + '+soundtrack&appid=' + musicAPIkey;
-  fetch(musicAPILink)
+  var musicAPILink = 'https://api.deezer.com/search/playlist?q=' + searchInputVal + '+soundtrack&appid=327d3bf7241329fd83a0889ff32d9943&output=json';
+  fetch(musicAPILink, {mode: "no-cors"})
   .then (function (response) {
     console.log(response);
-    return response.json() ;
+    return response.json();
   })
   .then (function (data) {
     console.log(data);
-    document.querySelector("#results").textContent = data[0].link;
     //var searchID = data.id
     /*fetch('https://api.deezer.com/album/' + searchID)
 
