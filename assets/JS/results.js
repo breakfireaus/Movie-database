@@ -1,7 +1,7 @@
-
-
+// global variables
 var currentDateEl = $("#date-and-time");
 var currentDate;
+var searchButton = document.querySelector('#search-button')
 
 function currentMomentDate() {
   currentDate = dayjs().format("dddd hh:mm A");
@@ -13,21 +13,11 @@ var refresh = setInterval(function () {
   currentMomentDate();
 }, 1000);
 
-// global variables
-
-var searchButton = document.querySelector('#search-button')
-
-// APIs
-
-
-// Declare global variables
-var searchButton = document.querySelector('#search-button')
 
 // API keys
-
 var musicAPIkey = '327d3bf7241329fd83a0889ff32d9943'
 
- // Modal JS 
+// Modal JS 
 // Get DOM Elements
 const modal = document.querySelector('#result-modal');
 const modalBtn = document.querySelector('#modal-btn');
@@ -50,57 +40,28 @@ function outsideClick(e) {
 }
 // end of modal script 
 
-/* Gets the search parameters from the home page and previous history page
-function getParams() {
-  var searchParamsArr = document.location.search;
-  var movieResults = searchParamsArr[0].split("=").pop();
-
-  searchResults(movieResults);
-}
-
-
-// Searches the movie API using the search parameters
-function searchResults(movieResults) {
-  this.preventDefault();
-  var movieQueryUrl = "https://api.themoviedb.org/3/search/movie?api_key=f773dd7be92f1943bb6b98b40e74c3bf&query=" + movieResults;
-
-//obtain music tracks
-let resultsArray = [];
-
-
-  fetch(movieQueryUrl)
-    .then(function (response) {
-      console.log(response);
-      return response.json();
-    })
-    .then(function (data) {
-      console.log(data);
-      for (var i = 0; i < data.results.length; i++) {
-        var resultsCard = document.createElement("button");
-        resultsCard.onlick = resultsModalDisplay;
-        resultsCard.innerHTML = data.results[i].original_title;
-        document.querySelector("#results").append(resultsCard);
-      }
-      function resultsModalDisplay() {
-        document.querySelector('#movie-title-filled').textContent = data[i].original_title;
-        document.querySelector('#image').src = data[i].poster_path;
-      }
-    })
-} */
-
-// Searches for the movie using the search form on the results page
 
 let resultsArray = [];
 
+// Searches the movie API for the movie title
 searchButton.addEventListener("click", searchResults);
 
+let movieSearchParams = false
+
 function searchResults(event) {
-  event.preventDefault();
+
+  let searchInputVal = ""
+  if (event) {
+    event.preventDefault();
+  }
 
   document.querySelector("#results").innerHTML = "";
-
-  var searchInput = document.querySelector('input[name="movie-search"]');
-  var searchInputVal = searchInput.value;
+  if (!movieSearchParams) {
+    var searchInput = document.querySelector('input[name="movie-search"]');
+    searchInputVal = searchInput.value;
+  } else {
+    searchInputVal = document.location.search.split("=").pop();
+  }
   var movieAPIkey = "https://api.themoviedb.org/3/search/movie?api_key=f773dd7be92f1943bb6b98b40e74c3bf&query=" + searchInputVal;
   
   document.querySelector('#search-display').textContent = searchInputVal
@@ -146,20 +107,40 @@ function playlistPull(event) {
   .then (function (data) {
     console.log(data);
     //var searchID = data.id
-    /*fetch('https://api.deezer.com/album/' + searchID)
+    fetch('https://api.deezer.com/album/' + searchID)
 
     .then(function (response) {
       console.log(response)
         return response.json()
       
+
     })
     .then(function (data) {
       console.log(data)
-      for (var i = 0; i < data.tracks.length; i++) {
-        var albumTrack = document.createElement(li)
-        albumTrack.textContent = data.tracks[i].title + ' by ' + data.tracks[i].artist.name 
-        document.querySelector('#music-list').append(albumTrack)
+      var searchID = data.id
+      fetch('https://api.deezer.com/album/' + searchID)
+
+        .then(function (response) {
+          return response.json()
+
+        })
+        .then(function (data) {
+          console.log(data)
+          for (var i = 0; i < data.tracks.length; i++) {
+            var albumTrack = document.createElement(li)
+            albumTrack.textContent = data.tracks[i].title + ' by ' + data.tracks[i].artist.name
+            document.querySelector('#music-list').append(albumTrack)
+          }
+        }
+        )
     }
-  }
-)*/}   
-  );}
+
+    )
+}
+
+
+/*if (document.location.search.length > 0) {
+  movieSearchParams = true
+  searchResults();
+}
+*/)}
