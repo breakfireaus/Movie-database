@@ -1,8 +1,8 @@
-# Title
+# Movie Makers Soundtrack Database
 
 ## Description
 
-
+Welcome to the Movie Makers Soundtrack Database, The purpose of this site is for users to search for the music soundtracks of movies they have love or have watched or have an interest for. This was a project that was not made by 1 individual but a collaboration of 3 individuals who were studying a bootcamp of coding. This was our first ever team project in the world of IT and finding the balance of our everyday lives and working as a team in IT, lots of learning. It was a great experience, challenging and very rewarding as we have only been coding for 8 weeks.
 
 ## Table of Contents
 
@@ -14,29 +14,37 @@
 
 ## Installation
 
-
+This site may be accessed 
 
 ## Usage
 - Main Page
-![alt text](assets/images/Screenshot-1.jpg)
+![alt text](./assets/images/readme/Screenshot-1.jpg)
 
 ## Technology
 
 - DayJS
 - Tailwind (CSS)
 - HTML
-- Jquery
+- Javascript
 - Server Side APIs
 - WEB APIs
 
 ## Credits
 
-- Ask BCS team @ Monash university Bootcamp
-- Tutor for getting me on track
+- Our instructors
+- Tutors for getting us on track
 - Traversy Media
 - W3schools
 - Tailwind DOCS
 - WebDev Simplified
+
+## Contributors
+
+- Matthew Younger - Project Lead/Developer  
+- Rachael Pluta - Developer
+- Miles Thomas - Developer
+
+
 
 
 
