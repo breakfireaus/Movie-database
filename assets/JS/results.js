@@ -63,34 +63,61 @@ function searchResults(event) {
     searchInputVal = document.location.search.split("=").pop();
   }
   var movieAPIkey = "https://api.themoviedb.org/3/search/movie?api_key=f773dd7be92f1943bb6b98b40e74c3bf&query=" + searchInputVal;
+  
+  document.querySelector('#search-display').textContent = searchInputVal
+  
   fetch(movieAPIkey)
     .then(function (response) {
-      console.log(response);
       return response.json();
     })
     .then(function (data) {
-      console.log(data);
-      for (var i = 0; i < 5; i++) {
-        var resultsCard = document.createElement("button");
-        resultsCard.addEventListener("click", resultsModalDisplay);
-        resultsCard.textContent = data.results[i].original_title + ", " + data.results[i].release_date;
-        resultsCard.setAttribute("id", data.results[i].id);
-        document.querySelector("#results").append(resultsCard);
-      }
-      function resultsModalDisplay() {
-        modal.style.display = "block";
-        var modalTitle = document.querySelector("#movie-title-filled");
-        var modalImage = document.querySelector("#image");
-        modalTitle.textContent = data.results[i].original_title;
-        modalImage.href = data.results[i].poster_path;
-      }
+      resultsArray = [...data.results]
+        for (var i = 0; i < 5; i++) {
+          var resultsCard = document.createElement("button");
+          resultsCard.addEventListener("click", resultsModalDisplay);
+          resultsCard.textContent = resultsArray[i].original_title + ", " + resultsArray[i].release_date;
+          resultsCard.setAttribute('id', resultsArray[i].id);
+          document.querySelector("#results").append(resultsCard);
+          resultsCard.classList.add('search-results');
+        }
+
+        function resultsModalDisplay() {
+          modal.style.display = "block";
+          var modalTitle = document.querySelector("#movie-title-filled");
+          var modalImage = document.querySelector("#image");
+          console.log(resultsCard.getAttribute('id'))
+          var chosenSearch = resultsArray.find((item) => {
+            return item.id == resultsCard.getAttribute('id')
+          })
+          console.log(chosenSearch)
+          modalTitle.textContent = chosenSearch.original_title
+          modalImage.src = 'https://image.tmdb.org/t/p/original/' + chosenSearch.poster_path
+        }
+
+        
     });
 }
 
-function playlistPull() {
-  fetch('https://api.deezer.com/search/album?q=' + resultsCard.innerHTML + 'soundtrack&appid=' + musicAPIkey)
+function playlistPull(event) {
+  event.preventDefault()
+  var searchInput = document.querySelector('input[name="movie-search"]');
+  var searchInputVal = searchInput.value;
+  var musicAPILink = 'https://api.deezer.com/search/playlist?q=' + searchInputVal + '+soundtrack&appid=327d3bf7241329fd83a0889ff32d9943&output=json';
+  fetch(musicAPILink, {mode: "no-cors"})
+  .then (function (response) {
+    console.log(response);
+    return response.json();
+  })
+  .then (function (data) {
+    console.log(data);
+    //var searchID = data.id
+    fetch('https://api.deezer.com/album/' + searchID)
+
     .then(function (response) {
-      return response.json()
+      console.log(response)
+        return response.json()
+      
+
     })
     .then(function (data) {
       console.log(data)
@@ -111,9 +138,10 @@ function playlistPull() {
         }
         )
     }
+
     )
 }
-
+)}
 
 if (document.location.search.length > 0) {
   movieSearchParams = true
