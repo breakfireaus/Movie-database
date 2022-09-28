@@ -3,6 +3,7 @@ var currentDateEl = $("#date-and-time");
 var currentDate;
 var searchButton = document.querySelector('#search-button');
 var searchInput;
+var searchID;
 
 
 function currentMomentDate() {
@@ -67,7 +68,7 @@ function searchResults(event) {
   }
   var movieAPIkey = "https://api.themoviedb.org/3/search/movie?api_key=f773dd7be92f1943bb6b98b40e74c3bf&query=" + searchInputVal;
   
-  document.querySelector('#search-display').textContent = searchInput.value
+  document.querySelector('#search-display').textContent = searchInput.value;
   document.querySelector("#results").innerHTML = "";
   
   fetch(movieAPIkey)
@@ -113,16 +114,20 @@ function playlistPull() {
   //event.preventDefault()
   var searchInput = document.querySelector('input[name="movie-search"]');
   //var searchInputVal = searchInput.value;
-  var musicAPILink = 'https://api.deezer.com/search/playlist?q=' + searchInput.value + '+soundtrack&appid=327d3bf7241329fd83a0889ff32d9943&output=json';
+  var musicAPILink = 'https://api.deezer.com/search/playlist?q=' + searchInput.value + '+soundtrack&appid=327d3bf7241329fd83a0889ff32d9943';
   fetch(musicAPILink, {mode: "no-cors"})
-  .then (function (response) {
-    console.log(response);
-    return response.json();
+  console.log(musicAPILink)
+  fetch(musicAPILink).then(response => {
+    var hsts = response.headers.get("tracklist"),
+        csp = response.headers.get("tracklist")
+    log(hsts, csp)
   })
   .then (function (data) {
     console.log(data);
-    //var searchID = data.id
-    fetch('https://api.deezer.com/album/' + searchID)
+    if (searchID === 1)
+    var searchID = data.id
+    fetch('https://api.deezer.com/playlist/' + searchID)
+    console.log(searchID)
 
     .then(function (response) {
       console.log(response)
@@ -133,7 +138,7 @@ function playlistPull() {
     .then(function (data) {
       console.log(data)
       var searchID = data.id
-      fetch('https://api.deezer.com/album/' + searchID)
+      fetch('https://api.deezer.com/playlist/' + searchID)
 
         .then(function (response) {
           return response.json()
