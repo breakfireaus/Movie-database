@@ -2,42 +2,97 @@
 <html lang="en">
 
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-  <link rel="stylesheet" href="./assets/CSS/reset.css" />
-  <script src="https://cdn.tailwindcss.com"></script>
-  <link rel="stylesheet" href="./assets/CSS/style.css" />
-  <title>Movie Makers Soundtrack Database</title>
-  <link rel="icon" type="image/x-icon" href="./assets/images/favicon/logofavicon.png">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link rel="stylesheet" href="./assets/CSS/reset.css" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="./assets/CSS/style.css" />
+    <title>Movie Makers Soundtrack Database</title>
+    <link rel="icon" type="image/x-icon" href="./assets/images/favicon/logofavicon.png">
 </head>
 
-<body>
-  <main>
+<body class="w-screen h-screen">
+
     <!--Page header-->
     <header class="bg-red-400 p-4 flex justify-between items-center">
-      <!-- left side -->
-      <div class="flex items-center">
-        <img class="mr-2" src="./assets/images/index-images/logo.png" width="50" alt="logo">
-        <a href="index.html" class="inline-block p-2 text-red-200 hover:text-red-100 mr-2">Home</a>
-        <a href="about.html" class="inline-block p-2 text-red-200 hover:text-red-100">About</a>
-        <a href="prevhistory.html" class="inline-block p-2 text-red-200 hover:text-red-100">Previous Searches</a>
-        <!-- future development
+        <!-- left side -->
+        <div class="flex items-center">
+            <img class="mr-2" src="./assets/images/index-images/logo.png" width="50" alt="logo">
+            <a href="index.html" class="inline-block p-2 text-red-200 hover:text-red-100 mr-2">Home</a>
+            <a href="about.html" class="inline-block p-2 text-red-200 hover:text-red-100">About</a>
+            <a href="prevhistory.html" class="inline-block p-2 text-red-200 hover:text-red-100">Previous
+                Searches</a>
+            <!-- future development
             <a href="#" class="inline-block p-2 text-red-200 hover:text-red-100">News</a>
             <a href="#" class="inline-block p-2 text-red-200 hover:text-red-100">Awards</a> -->
 
-      </div>
+        </div>
 
-      <div class="hidden md:block">
-        <a id="date-and-time" class="inline-block p-2 text-red-200 hover:text-red-100"></a>
-        <!--  future development
+        <div class="hidden md:block">
+            <a id="date-and-time" class="inline-block p-2 text-red-200 hover:text-red-100"></a>
+            <!--  future development
             <a href="#" class="inline-block p-2 text-red-200 hover:text-red-100">Social</a>
             <a href="#" class="inline-block p-2 text-red-200 hover:text-red-100">forum</a>
             <a href="#" class="inline-block p-2 text-indigo-200 hover:text-indigo-100 mr-2">Login</a>
             <a href="#" class="inline-block py-2 px-4 text-yellow-700 bg-yellow-400 hover:bg-yellow-300 hover:text-yellow-800 rounded transition ease-in duration-150">Sign Up</a> -->
-      </div>
+        </div>
     </header>
 
+    <main class="bg-indigo-600 text-white w-100 h-100 flex justify-center py-20 px-10">
+    <div class="w-96 h-96 justify-center items-center">
+        <h1 class="w-50 h-10 justify-center">About</h1>
+    <p class="">Welcome to the Movie Makers Soundtrack Database, The purpose of this site is for users to search
+        for
+        the music soundtracks of movies they have love or have watched or have an interest for. This was a
+        project
+        that was not made by 1 individual but a collaboration of 3 individuals who were studying a bootcamp of
+        coding. This was our first ever team project in the world of IT and finding the balance of our everyday
+        lives and working as a team in IT, lots of learning. It was a great experience, challenging and very
+        rewarding as we have only been coding for 8 weeks.</p>
 
-<h1 class=""></h1>
-<p></p>
+        <h2 class="w-50 h-10 justify-center">Technology Used</h2>
+        <li class="w-50 h-10 justify-center">DayJS</li>
+        <li class="w-50 h-10 justify-center">Tailwind (CSS)</li>
+        <li class="w-50 h-10 justify-center">Javascript</li>
+        <li class="w-50 h-10 justify-center">Server Side APIs (TMBD & DEEZER)</li>
+        <li class="w-50 h-10 justify-center">DayJS</li>
+    
+    
+        <h2 class="w-50 h-10 justify-center">Contributors</h2>
+        <li class="w-50 h-10 justify-center">Matthew Younger</li>
+        <small>Project Lead/Developer</small>
+        <li class="w-50 h-10 justify-center">Rachael Pluta</li>
+        <small>Developer</small>
+        <li class="w-50 h-10 justify-center">Miles Thomas</li>
+        <small>Developer</small>
+ 
+    
+        <h2 class="w-50 h-10 justify-center">Credits</h2>
+        <li class="w-50 h-10 justify-center">Our instructors</li>
+        <li class="w-50 h-10 justify-center">Tutors</li>
+        <li class="w-50 h-10 justify-center">Traversy Media</li>
+        <li class="w-50 h-10 justify-center">W3schools</li>
+        <li class="w-50 h-10 justify-center">Tailwind DOCS</li>
+        <li class="w-50 h-10 justify-center">WebDev Simplified</li>
+    </div>
+    </main>
+
+
+</body>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/dayjs@1/dayjs.min.js"></script>
+
+<script src="./assets/JS/results.js"></script>
+
+
+<footer class="bg-indigo-600 p-4 flex md:justify-between">
+    <span class="bg-indigo-600 text-sm text-indigo-100 sm:text-center dark:text-gray-400">© 2022 Developed and
+        designed
+        by
+        Rachael, Miles and Matthew All Rights Reserved.
+    </span>
+
+</footer>
+
+</html>
