@@ -63,10 +63,10 @@ function searchResults(event) {
     searchInputVal = document.location.search.split("=").pop();
   }
   var movieAPIkey = "https://api.themoviedb.org/3/search/movie?api_key=f773dd7be92f1943bb6b98b40e74c3bf&query=" + searchInputVal;
-  
+
   document.querySelector('#search-display').textContent = searchInput.value;
   document.querySelector("#results").innerHTML = "";
-  
+
   fetch(movieAPIkey)
     .then(function (response) {
       return response.json();

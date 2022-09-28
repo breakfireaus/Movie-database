@@ -20,22 +20,15 @@
 #modal-content{
 animation-name: modalopen;
   animation-duration: var(--modal-duration);
+  background: var(--c-lblue);
 }
 .modal-header {
-  background: var(--modal-color);
+  background: var(--c-lblue);
+  text-align: center;
 }
 
 #close-modal{
   text-decoration: none;
-}
-
-.search-results {
-  display: block;
-  text-align: center;
-  margin-top: 5px;
-  margin-bottom: 5px;
-  width: 50%;
-  
 }
 
 #image {
