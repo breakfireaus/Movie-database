@@ -68,19 +68,15 @@ function searchResults(event) {
   
   fetch(movieAPIkey)
     .then(function (response) {
-      console.log(response);
       return response.json();
     })
     .then(function (data) {
-      console.log(data);
       resultsArray = [...data.results]
         for (var i = 0; i < 5; i++) {
           var resultsCard = document.createElement("button");
           resultsCard.addEventListener("click", resultsModalDisplay);
-          resultsCard.textContent = data.results[i].original_title + ", " + data.results[i].release_date;
-          for (var n = 0; n < resultsArray.length; n++) {
-            resultsCard.setAttribute('id', data.results[n].id);
-          }
+          resultsCard.textContent = resultsArray[i].original_title + ", " + resultsArray[i].release_date;
+          resultsCard.setAttribute('id', resultsArray[i].id);
           document.querySelector("#results").append(resultsCard);
           resultsCard.classList.add('search-results');
         }
@@ -90,13 +86,15 @@ function searchResults(event) {
           var modalTitle = document.querySelector("#movie-title-filled");
           var modalImage = document.querySelector("#image");
           console.log(resultsCard.getAttribute('id'))
-          var chosenSearch = resultsArray.find((choice) => {
-            return choice.id===resultsCard.getAttribute('id')
+          var chosenSearch = resultsArray.find((item) => {
+            return item.id == resultsCard.getAttribute('id')
           })
           console.log(chosenSearch)
-          //modalTitle.textContent = chosenSearch.original_title
-          //modalImage.href = chosenSearch.poster_path
+          modalTitle.textContent = chosenSearch.original_title
+          modalImage.src = 'https://image.tmdb.org/t/p/original/' + chosenSearch.poster_path
         }
+
+        
     });
 }
 

@@ -38,6 +38,10 @@ animation-name: modalopen;
   
 }
 
+#image {
+  max-height: 300px;
+}
+
 @keyframes modalopen {
   from {
     opacity: 0;
