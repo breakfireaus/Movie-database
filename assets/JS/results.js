@@ -78,9 +78,11 @@ function searchResults(event) {
           var resultsCard = document.createElement("button");
           resultsCard.addEventListener("click", resultsModalDisplay);
           resultsCard.textContent = data.results[i].original_title + ", " + data.results[i].release_date;
-          resultsCard.setAttribute('id', data.results[i].id)
+          for (var n = 0; n < resultsArray.length; n++) {
+            resultsCard.setAttribute('id', data.results[n].id);
+          }
           document.querySelector("#results").append(resultsCard);
-          resultsCard.classList.add('search-results')
+          resultsCard.classList.add('search-results');
         }
 
         function resultsModalDisplay() {
@@ -88,8 +90,12 @@ function searchResults(event) {
           var modalTitle = document.querySelector("#movie-title-filled");
           var modalImage = document.querySelector("#image");
           console.log(resultsCard.getAttribute('id'))
-          modalTitle.textContent = resultsArray[i].original_title
-          modalImage.href = resultsArray[i].poster_path
+          var chosenSearch = resultsArray.find((choice) => {
+            return choice.id===resultsCard.getAttribute('id')
+          })
+          console.log(chosenSearch)
+          //modalTitle.textContent = chosenSearch.original_title
+          //modalImage.href = chosenSearch.poster_path
         }
     });
 }
@@ -137,10 +143,10 @@ function playlistPull(event) {
 
     )
 }
+)}
 
-
-/*if (document.location.search.length > 0) {
+if (document.location.search.length > 0) {
   movieSearchParams = true
   searchResults();
 }
-*/)}
+
