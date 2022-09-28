@@ -3,6 +3,7 @@ var currentDateEl = $("#date-and-time");
 var currentDate;
 var searchButton = document.querySelector('#search-button');
 var searchInput;
+var searchID;
 
 
 function currentMomentDate() {
@@ -14,10 +15,6 @@ function currentMomentDate() {
 var refresh = setInterval(function () {
   currentMomentDate();
 }, 1000);
-
-
-// API keys
-var musicAPIkey = '327d3bf7241329fd83a0889ff32d9943'
 
 // Modal JS 
 // Get DOM Elements
@@ -66,10 +63,10 @@ function searchResults(event) {
     searchInputVal = document.location.search.split("=").pop();
   }
   var movieAPIkey = "https://api.themoviedb.org/3/search/movie?api_key=f773dd7be92f1943bb6b98b40e74c3bf&query=" + searchInputVal;
-  
-  document.querySelector('#search-display').textContent = searchInput.value
+
+  document.querySelector('#search-display').textContent = searchInput.value;
   document.querySelector("#results").innerHTML = "";
-  
+
   fetch(movieAPIkey)
     .then(function (response) {
       return response.json();
@@ -80,7 +77,7 @@ function searchResults(event) {
         for (var i = 0; i < 5; i++) {
           var resultsCard = document.createElement("button");
           resultsCard.addEventListener("click", resultsModalDisplay);
-          resultsCard.textContent = resultsArray[i].original_title + ", " + dayjs(resultsArray[i].release_date).format("DD-MM-YYYY");
+          resultsCard.textContent = resultsArray[i].original_title 
           resultsCard.setAttribute('id', resultsArray[i].id);
           resultsCard.setAttribute("data-image", resultsArray[i].poster_path);
           document.querySelector("#results").append(resultsCard);
@@ -88,7 +85,6 @@ function searchResults(event) {
         }
 
         function resultsModalDisplay() {
-          playlistPull();
           modal.style.display = "block";
           var modalTitle = document.querySelector("#movie-title-filled");
           var modalImage = document.querySelector("#image");
@@ -100,6 +96,26 @@ function searchResults(event) {
           var image = this.getAttribute("data-image");
           modalTitle.textContent = this.textContent;
           modalImage.src = 'https://image.tmdb.org/t/p/original/' + image;
+          secondSearch();
+
+          function secondSearch() {
+            var OMDBAPILink = 'http://www.omdbapi.com/?apikey=406ff228&t=' + modalTitle.textContent;
+            fetch(OMDBAPILink)
+            .then(function (response) {
+              return response.json()
+            })
+            .then(function (data) {
+              document.querySelector('#movie-details').innerHTML=" "
+              var plotContainer = document.createElement('p')
+              plotContainer.textContent = data.Plot
+              document.querySelector('#movie-details').append(plotContainer)
+              for (i = 0; i < data.Ratings.length; i++) {
+                var criticRatings = document.createElement('li')
+                criticRatings.textContent = data.Ratings[i].Source + ": " + data.Ratings[i].Value
+                document.querySelector('#movie-details').append(criticRatings)
+              }
+            })
+          }
         }
     });
 }
@@ -109,53 +125,7 @@ clearHistoryBtn.addEventListener("click", function() {
   document.querySelector("#results").innerHTML = "";
 })
 
-function playlistPull() {
-  //event.preventDefault()
-  var searchInput = document.querySelector('input[name="movie-search"]');
-  //var searchInputVal = searchInput.value;
-  var musicAPILink = 'https://api.deezer.com/search/playlist?q=' + searchInput.value + '+soundtrack&appid=327d3bf7241329fd83a0889ff32d9943&output=json';
-  fetch(musicAPILink, {mode: "no-cors"})
-  .then (function (response) {
-    console.log(response);
-    return response.json();
-  })
-  .then (function (data) {
-    console.log(data);
-    //var searchID = data.id
-    fetch('https://api.deezer.com/album/' + searchID)
-
-    .then(function (response) {
-      console.log(response)
-        return response.json()
-      
-
-    })
-    .then(function (data) {
-      console.log(data)
-      var searchID = data.id
-      fetch('https://api.deezer.com/album/' + searchID)
-
-        .then(function (response) {
-          return response.json()
-
-        })
-        .then(function (data) {
-          console.log(data)
-          for (var i = 0; i < data.tracks.length; i++) {
-            var albumTrack = document.createElement(li)
-            albumTrack.textContent = data.tracks[i].title + ' by ' + data.tracks[i].artist.name
-            document.querySelector('#music-list').append(albumTrack)
-          }
-        }
-        )
-    }
-
-    )
-}
-)}
-
 if (document.location.search.length > 0) {
   movieSearchParams = true
   searchResults();
 }
-
