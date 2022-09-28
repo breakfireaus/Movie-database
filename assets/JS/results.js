@@ -16,10 +16,6 @@ var refresh = setInterval(function () {
   currentMomentDate();
 }, 1000);
 
-
-// API keys
-var musicAPIkey = '327d3bf7241329fd83a0889ff32d9943'
-
 // Modal JS 
 // Get DOM Elements
 const modal = document.querySelector('#result-modal');
@@ -78,89 +74,58 @@ function searchResults(event) {
     .then(function (data) {
       resultsArray = [...data.results]
       console.log(resultsArray)
-      for (var i = 0; i < 5; i++) {
-        var resultsCard = document.createElement("button");
-        resultsCard.addEventListener("click", resultsModalDisplay);
-        resultsCard.textContent = resultsArray[i].original_title + ", " + dayjs(resultsArray[i].release_date).format("DD-MM-YYYY");
-        resultsCard.setAttribute('id', resultsArray[i].id);
-        resultsCard.setAttribute("data-image", resultsArray[i].poster_path);
-        document.querySelector("#results").append(resultsCard);
-      }
+        for (var i = 0; i < 5; i++) {
+          var resultsCard = document.createElement("button");
+          resultsCard.addEventListener("click", resultsModalDisplay);
+          resultsCard.textContent = resultsArray[i].original_title 
+          resultsCard.setAttribute('id', resultsArray[i].id);
+          resultsCard.setAttribute("data-image", resultsArray[i].poster_path);
+          document.querySelector("#results").append(resultsCard);
+          resultsCard.classList.add('search-results');
+        }
 
-      function resultsModalDisplay() {
-        playlistPull();
-        modal.style.display = "block";
-        var modalTitle = document.querySelector("#movie-title-filled");
-        var modalImage = document.querySelector("#image");
-        console.log(resultsCard.getAttribute('id'))
-        var chosenSearch = resultsArray.find((item) => {
-          return item.id == resultsCard.getAttribute('id')
-        })
-        console.log(chosenSearch)
-        var image = this.getAttribute("data-image");
-        modalTitle.textContent = this.textContent;
-        modalImage.src = 'https://image.tmdb.org/t/p/original/' + image;
-      }
+        function resultsModalDisplay() {
+          modal.style.display = "block";
+          var modalTitle = document.querySelector("#movie-title-filled");
+          var modalImage = document.querySelector("#image");
+          console.log(resultsCard.getAttribute('id'))
+          var chosenSearch = resultsArray.find((item) => {
+            return item.id == resultsCard.getAttribute('id')
+          })
+          console.log(chosenSearch)
+          var image = this.getAttribute("data-image");
+          modalTitle.textContent = this.textContent;
+          modalImage.src = 'https://image.tmdb.org/t/p/original/' + image;
+          secondSearch();
+
+          function secondSearch() {
+            var OMDBAPILink = 'http://www.omdbapi.com/?apikey=406ff228&t=' + modalTitle.textContent;
+            fetch(OMDBAPILink)
+            .then(function (response) {
+              return response.json()
+            })
+            .then(function (data) {
+              document.querySelector('#movie-details').innerHTML=" "
+              var plotContainer = document.createElement('p')
+              plotContainer.textContent = data.Plot
+              document.querySelector('#movie-details').append(plotContainer)
+              for (i = 0; i < data.Ratings.length; i++) {
+                var criticRatings = document.createElement('li')
+                criticRatings.textContent = data.Ratings[i].Source + ": " + data.Ratings[i].Value
+                document.querySelector('#movie-details').append(criticRatings)
+              }
+            })
+          }
+        }
     });
 }
 
 var clearHistoryBtn = document.querySelector("#clear-results");
-clearHistoryBtn.addEventListener("click", function () {
+clearHistoryBtn.addEventListener("click", function() {
   document.querySelector("#results").innerHTML = "";
 })
-
-function playlistPull() {
-  //event.preventDefault()
-  var searchInput = document.querySelector('input[name="movie-search"]');
-  //var searchInputVal = searchInput.value;
-  var musicAPILink = 'https://api.deezer.com/search/playlist?q=' + searchInput.value + '+soundtrack&appid=327d3bf7241329fd83a0889ff32d9943';
-  fetch(musicAPILink, { mode: "no-cors" })
-  console.log(musicAPILink)
-  fetch(musicAPILink).then(response => {
-    var hsts = response.headers.get("tracklist"),
-      csp = response.headers.get("tracklist")
-    log(hsts, csp)
-  })
-    .then(function (data) {
-      console.log(data);
-      if (searchID === 1)
-        var searchID = data.id
-      fetch('https://api.deezer.com/playlist/' + searchID)
-      console.log(searchID)
-
-        .then(function (response) {
-          console.log(response)
-          return response.json()
-
-
-        })
-        .then(function (data) {
-          console.log(data)
-          var searchID = data.id
-          fetch('https://api.deezer.com/playlist/' + searchID)
-
-            .then(function (response) {
-              return response.json()
-
-            })
-            .then(function (data) {
-              console.log(data)
-              for (var i = 0; i < data.tracks.length; i++) {
-                var albumTrack = document.createElement(li)
-                albumTrack.textContent = data.tracks[i].title + ' by ' + data.tracks[i].artist.name
-                document.querySelector('#music-list').append(albumTrack)
-              }
-            }
-            )
-        }
-
-        )
-    }
-    )
-}
 
 if (document.location.search.length > 0) {
   movieSearchParams = true
   searchResults();
 }
-

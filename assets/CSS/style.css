@@ -25,7 +25,6 @@ animation-name: modalopen;
 .modal-header {
   background: var(--c-lblue);
   text-align: center;
-  color: 
 }
 
 #close-modal{
