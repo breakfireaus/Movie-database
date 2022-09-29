@@ -109,10 +109,12 @@ function searchResults(event) {
               var plotContainer = document.createElement('p')
               plotContainer.textContent = data.Plot
               document.querySelector('#movie-details').append(plotContainer)
+              plotContainer.classList.add('mb-8')
               for (i = 0; i < data.Ratings.length; i++) {
                 var criticRatings = document.createElement('li')
                 criticRatings.textContent = data.Ratings[i].Source + ": " + data.Ratings[i].Value
                 document.querySelector('#movie-details').append(criticRatings)
+                criticRatings.classList.add('text-left')
               }
             })
           }
