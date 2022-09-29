@@ -111,7 +111,16 @@ function searchResults(event) {
               return response.json()
             })
             .then(function (data) {
+              console.log(data)
               document.querySelector('#movie-details').innerHTML=" "
+              var releaseYear = document.createElement('p')
+              releaseYear.textContent = "Year of release: " + data.Year
+              document.querySelector('#movie-details').append(releaseYear)
+              releaseYear.classList.add('mb-8')
+              var starringActors = document.createElement('p')
+              starringActors.textContent = 'Starring: ' + data.Actors 
+              document.querySelector('#movie-details').append(starringActors)
+              starringActors.classList.add('mb-8')
               var plotContainer = document.createElement('p')
               plotContainer.textContent = data.Plot
               document.querySelector('#movie-details').append(plotContainer)
