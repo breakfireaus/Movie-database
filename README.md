@@ -2,7 +2,9 @@
 
 ## Description
 
-Welcome to the Movie Makers Soundtrack Database, The purpose of this site is for users to search for the music soundtracks of movies they have love or have watched or have an interest for. This was a project that was not made by 1 individual but a collaboration of 3 individuals who were studying a bootcamp of coding. This was our first ever team project in the world of IT and finding the balance of our everyday lives and working as a team in IT, lots of learning. It was a great experience, challenging and very rewarding as we have only been coding for 8 weeks.
+Welcome to the Movie Makers Mine, The purpose of this project was to create a one-stop-shop for movie enthusiasts to find a goldmine of information about their favourite movies.  The site currently allows users to search a movie title and find information about the movie plotline and ratings.
+
+Further development will involve calling on additional APIs to allow movie enthusiasts to watch the movie's trailer, listen to the movie's soundtrack, read famous quotes from the movie and find information about the movie's cast and other interesting tidbits!
 
 ## Table of Contents
 
@@ -14,11 +16,20 @@ Welcome to the Movie Makers Soundtrack Database, The purpose of this site is for
 
 ## Installation
 
-This site may be accessed 
+N/A 
 
 ## Usage
-- Main Page
-![alt text](./assets/images/readme/Screenshot-1.jpg)
+The user can search for a movie title by entering the name of a movie in the search bar on the page.
+![Pink nav bar with purple page background, Movie Makers Mine heading and search bar on left and image of Hollywood sign on right](https://raw.githubusercontent.com/breakfireaus/Movie-and-music-database/main/assets/images/readme/homepage-screenshot.png)
+
+The user is then re-directed to the results page, which displays a list of five related movie titles.
+![Pink nav bar with purple page background, Movie Makers Mine heading and search bar on left and list of five search results in white text on right](https://raw.githubusercontent.com/breakfireaus/Movie-and-music-database/main/assets/images/readme/results-screenshot.png)
+
+The user can then click on the relevant movie title that they want to learn more about, and the modal will display the movie's poster, plotline and ratings (as well as trailer, soundtrack, quotes and other interesting tidbits in future).
+![Pink modal displaying movie title, poster, plotline and ratings on left, and list of five search results in white text on right](https://raw.githubusercontent.com/breakfireaus/Movie-and-music-database/main/assets/images/readme/modal-screenshot.png)
+
+The user's search history is saved, so that they can navigate to the Previous Searches page to retrieve the list of related movie titles again.
+![Pink nav bar with purple page background, Movie Makers Mine heading and search bar on left and previous search history displayed in white text on right](https://raw.githubusercontent.com/breakfireaus/Movie-and-music-database/main/assets/images/readme/prevhistory-screenshot.png)
 
 ## Technology
 
@@ -28,6 +39,10 @@ This site may be accessed
 - Javascript
 - Server Side APIs
 - WEB APIs
+
+## Deployed Webpage
+
+- Available here https://breakfireaus.github.io/Movie-and-music-database/
 
 ## Credits
 
@@ -43,10 +58,6 @@ This site may be accessed
 - Matthew Younger - Project Lead/Developer  
 - Rachael Pluta - Developer
 - Miles Thomas - Developer
-
-
-
-
 
 ## License
 

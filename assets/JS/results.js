@@ -81,7 +81,7 @@ function searchResults(event) {
           resultsCard.setAttribute('id', resultsArray[i].id);
           resultsCard.setAttribute("data-image", resultsArray[i].poster_path);
           document.querySelector("#results").append(resultsCard);
-          resultsCard.classList.add('search-results');
+          //resultsCard.classList.add('search-results');
         }
 
         function resultsModalDisplay() {
