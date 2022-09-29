@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="./assets/CSS/reset.css" />
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="./assets/CSS/style.css" />
-    <title>Movie Makers Soundtrack Database</title>
+    <title>Movie Makers Mine</title>
     <link rel="icon" type="image/x-icon" href="./assets/images/favicon/logofavicon.png">
 </head>
 
@@ -16,7 +16,7 @@
 
     <!--Page header-->
     <header class="bg-red-400 p-4 flex justify-between items-center">
-        <!-- left side -->
+        <!-- Nav bar -->
         <div class="flex items-center">
             <img class="mr-2" src="./assets/images/index-images/logo.png" width="50" alt="logo">
             <a href="index.html" class="inline-block p-2 text-red-200 hover:text-red-100 mr-2">Home</a>
@@ -29,6 +29,7 @@
 
         </div>
 
+        <!--Displays the date and time-->
         <div class="hidden md:block">
             <a id="date-and-time" class="inline-block p-2 text-red-200 hover:text-red-100"></a>
             <!--  future development
@@ -39,26 +40,30 @@
         </div>
     </header>
 
+    <!--Container for the bulk of the page information-->
     <main class="bg-indigo-600 text-white flex justify-center py-40 px-20">
     <div class="px-20 h-96 justify-center items-center">
         <h1 class="w-50 h-10 justify-center">About</h1>
-    <p class="">Welcome to the Movie Makers Soundtrack Database, The purpose of this site is for users to search
+    <!--Displays a short blurb about the application-->
+    <p>Welcome to the Movie Makers Mine, The purpose of this site is for users to search
         for
-        the music soundtracks of movies they have love or have watched or have an interest for. This was a
+        useful information about movies they have love or have watched or have an interest for. This was a
         project
         that was not made by 1 individual but a collaboration of 3 individuals who were studying a bootcamp of
         coding. This was our first ever team project in the world of IT and finding the balance of our everyday
         lives and working as a team in IT, lots of learning. It was a great experience, challenging and very
         rewarding as we have only been coding for 8 weeks.</p>
 
+        <!--Displays a list of the technologies used in development-->
         <h2 class="w-50 h-10 justify-center">Technology Used</h2>
         <li class="w-50 h-10 justify-center">DayJS</li>
         <li class="w-50 h-10 justify-center">Tailwind (CSS)</li>
         <li class="w-50 h-10 justify-center">Javascript</li>
-        <li class="w-50 h-10 justify-center">Server Side APIs (TMBD & DEEZER)</li>
+        <li class="w-50 h-10 justify-center">Server Side APIs (TMBD & OMDB)</li>
         <li class="w-50 h-10 justify-center">DayJS</li>
     
     
+        <!--Displays the people who worked on the webpage and the roles they played-->
         <h2 class="justify-center">Contributors</h2>
         <li class="ml-32">Matthew Younger</li>
         <small>Project Lead/Developer</small>
@@ -68,6 +73,7 @@
         <small>Developer</small>
  
     
+        <!--Displays list of people and resources that assisted in developing the webpage-->
         <h2 class="w-50 h-10 justify-center">Credits</h2>
         <li class="w-50 h-10 justify-center">Our instructors</li>
         <li class="w-50 h-10 justify-center">Tutors</li>
@@ -78,6 +84,7 @@
     </div>
     </main>
 
+    <!--Displays the footer-->
     <footer class="bg-indigo-600 fixed bottom-0 p-4 flex md:justify-between items-end">
         <span class="bg-indigo-600 text-sm text-indigo-100 sm:text-center dark:text-gray-400">© 2022 Developed and
             designed
@@ -87,9 +94,10 @@
     
     </footer>
 </body>
+
+<!--Javascript resources-->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/dayjs@1/dayjs.min.js"></script>
-
 <script src="./assets/JS/results.js"></script>
 
 

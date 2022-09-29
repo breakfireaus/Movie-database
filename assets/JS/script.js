@@ -1,3 +1,4 @@
+//Global variables
 var currentDateEl = $("#date-and-time");
 var currentDate;
 var movieTitleInput = document.querySelector("#movie-search");
@@ -8,6 +9,7 @@ var movieTitleText = "";
 var movieTitles = [];
 var clearHistoryBtn = document.querySelector("#clear-history");
 
+//On page load determines if there is any local storage saved and executes time
 function init() {
     var storedMovies = JSON.parse(localStorage.getItem("movieTitles"));
 

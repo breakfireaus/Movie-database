@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="./assets/CSS/reset.css" />
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="./assets/CSS/style.css" />
-    <title>Movie and Music Database</title>
+    <title>Movie Makers Mine</title>
     <link rel="icon" type="image/x-icon" href="./assets/images/favicon/logofavicon.png">
 </head>
 
@@ -17,7 +17,7 @@
         <!--Page header-->
         <header class="bg-red-400 p-4 flex justify-between items-center">
 
-            <!-- left side -->
+            <!-- Nav bar -->
             <div class="flex items-center">
                 <img class="mr-2" src="./assets/images/index-images/logo.png" width="50" alt="logo">
                 <a href="index.html" class="inline-block p-2 text-red-200 hover:text-red-100 mr-2">Home</a>
@@ -30,7 +30,7 @@
               <a href="#" class="inline-block p-2 text-red-200 hover:text-red-100">Awards</a> -->
             </div>
 
-            <!-- right side -->
+            <!-- Sets data and time -->
             <div class="hidden md:block">
                 <a id="date-and-time" class="inline-block p-2 text-red-200 hover:text-red-100"></a>
                 <!--  future development
@@ -44,8 +44,8 @@
         <section class="md:flex justify-between py-20 px-10 bg-indigo-600 text-indigo-100">
             <!--Displays welcome text on left-->
             <div class="md:w-1/2 mb-10 md:mb-0">
-                <h2 class="text-2xl md:text-4xl lg:text-6xl text-white mb-6">Movie Makers Soundtrack Database</h2>
-                <p class="mb-6">Search for your favourite soundtracks for all you movie enthusiasts!!!</p>
+                <h2 class="text-2xl md:text-4xl lg:text-6xl text-white mb-6">Movie Makers Mine</h2>
+                <p class="mb-6">Search for your favourite movies to find a goldmine of information!!!</p>
 
                 <!--Search Bar-->
                 <form id="search-form" class="flex mr-5">
@@ -72,6 +72,7 @@
             </div>
         </section>
 
+        <!-- Displays detailed movie information-->
         <section id="result-modal"
             class="hidden fixed z-1 left-0 top-0 h-5/5 w-5/5 overflow-auto bg-red-300 text-white m-1 m-5/5 w-3/5 shadow-md">
             <span id="modal-content">
@@ -89,19 +90,15 @@
                     </div>
             </span>
         </section>
-
-        <!--User search history-->
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-        <script src="https://cdn.jsdelivr.net/npm/dayjs@1/dayjs.min.js"></script>
-        <script src="https://e-cdns-files.dzcdn.net/js/min/dz.js"></script>
-        <script src="./assets/JS/results.js"></script>
     </main>
 
+    <!--Displays footer-->
     <footer class="bg-indigo-600 p-4 block md:flex md:items-center md:justify-between md:p-6 dark:bg-gray-800">
         <p class="bg-indigo-600 text-sm text-indigo-100 sm:text-center dark:text-gray-400">© 2022 Developed and designed
             by Rachael, Miles and Matthew All Rights Reserved.</p>
     </footer>
 
+    <!--Javascript resources-->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/dayjs@1/dayjs.min.js"></script>
     <script src="./assets/JS/results.js"></script>
