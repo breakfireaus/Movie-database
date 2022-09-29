@@ -32,7 +32,13 @@ animation-name: modalopen;
 }
 
 #image {
-  max-height: 300px;
+  max-height: 450px;
+}
+
+.search-results {
+  display: block;
+  text-align: center;
+  width: 100%;
 }
 
 @keyframes modalopen {
