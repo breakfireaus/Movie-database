@@ -1,5 +1,8 @@
 # Movie Makers Mine
 
+## URL to website
+https://mdthomas1.github.io/Movie-Makers-Mine/
+
 ## Description
 
 Welcome to the Movie Makers Mine, The purpose of this project was to create a one-stop-shop for movie enthusiasts to find a goldmine of information about their favourite movies.  The site currently allows users to search a movie title and find information about the movie plotline and ratings.
