@@ -105,7 +105,7 @@ function searchResults(event) {
 
           //Fetches a second movie API for additional movie information on the modal
           function secondSearch() {
-            var OMDBAPILink = 'http://www.omdbapi.com/?apikey=406ff228&t=' + modalTitle.textContent;
+            var OMDBAPILink = 'https://www.omdbapi.com/?apikey=406ff228&t=' + modalTitle.textContent;
             fetch(OMDBAPILink)
             .then(function (response) {
               return response.json()
